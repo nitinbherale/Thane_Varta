@@ -75,32 +75,32 @@
                                 <div class="panel-body">
                                     <ul class="offcanvas-sub-nav">
                                         <li>
-                                            <a href="index-2.html">Home 1</a>
+                                            <a href="#">Home 1</a>
                                         </li>
                                         <li>
-                                            <a href="index2.html">Home 2</a>
+                                            <a href="#">Home 2</a>
                                         </li>
                                         <li>
-                                            <a href="index3.html">Home 3</a>
+                                            <a href="#">Home 3</a>
                                         </li>
                                         <li>
-                                            <a href="index4.html">Home 4</a>
+                                            <a href="#">Home 4</a>
                                         </li>
                                         <li>
-                                            <a href="index5.html">Home 5</a>
+                                            <a href="#">Home 5</a>
                                         </li>
                                         <li>
-                                            <a href="index6.html">Home 6</a>
+                                            <a href="#">Home 6</a>
                                         </li>
                                         <li>
-                                            <a href="index7.html">Home 7</a>
+                                            <a href="#">Home 7</a>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
                         </li>
                         <li>
-                            <a href="author-post.html">
+                            <a href="#">
                                 <i class="fa fa-user" aria-hidden="true"></i>Author Post Page</a>
                         </li>
                         <li class="panel panel-default">
@@ -112,16 +112,16 @@
                                 <div class="panel-body">
                                     <ul class="offcanvas-sub-nav">
                                         <li>
-                                            <a href="post-style-1.html">Post Style 1</a>
+                                            <a href="#">Post Style 1</a>
                                         </li>
                                         <li>
-                                            <a href="post-style-2.html">Post Style 2</a>
+                                            <a href="#">Post Style 2</a>
                                         </li>
                                         <li>
-                                            <a href="post-style-3.html">Post Style 3</a>
+                                            <a href="#">Post Style 3</a>
                                         </li>
                                         <li>
-                                            <a href="post-style-4.html">Post Style 4</a>
+                                            <a href="#">Post Style 4</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -136,13 +136,13 @@
                                 <div class="panel-body">
                                     <ul class="offcanvas-sub-nav">
                                         <li>
-                                            <a href="single-news-1.html">News Details 1</a>
+                                            <a href="#">News Details 1</a>
                                         </li>
                                         <li>
-                                            <a href="single-news-2.html">News Details 2</a>
+                                            <a href="#">News Details 2</a>
                                         </li>
                                         <li>
-                                            <a href="single-news-3.html">News Details 3</a>
+                                            <a href="#">News Details 3</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -161,21 +161,21 @@
                                 <div class="panel-body">
                                     <ul class="offcanvas-sub-nav">
                                         <li>
-                                            <a href="gallery-style-1.html">Gallery Style 1</a>
+                                            <a href="#">Gallery Style 1</a>
                                         </li>
                                         <li>
-                                            <a href="gallery-style-2.html">Gallery Style 2</a>
+                                            <a href="#">Gallery Style 2</a>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
                         </li>
                         <li>
-                            <a href="404.html">
+                            <a href="#">
                                 <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>404 Error Page</a>
                         </li>
                         <li>
-                            <a href="contact.html">
+                            <a href="#">
                                 <i class="fa fa-phone" aria-hidden="true"></i>Contact Page</a>
                         </li>
                     </ul>
