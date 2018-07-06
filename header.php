@@ -7,13 +7,13 @@
                                     <div class="col-lg-8 col-md-12">
                                         <ul class="news-info-list text-center--md">
                                             <li>
-                                                <i class="fa fa-map-marker" aria-hidden="true"></i>Australia</li>
+                                                <i class="fa fa-map-marker" aria-hidden="true"></i>Thane</li>
                                             <li>
                                                 <i class="fa fa-calendar" aria-hidden="true"></i><span id="current_date"></span></li>
                                             <li>
                                                 <i class="fa fa-clock-o" aria-hidden="true"></i>Last Update 11.30 am</li>
                                             <li>
-                                                <i class="fa fa-cloud" aria-hidden="true"></i>29&#8451; Sydney, Australia</li>
+                                                <i class="fa fa-cloud" aria-hidden="true"></i>29&#8451; Thane , Mumbai</li>
                                         </ul>
                                     </div>
                                     <div class="col-lg-4 d-none d-lg-block">
@@ -75,90 +75,24 @@
                                             <ul>
                                                 <li class="active">
                                                     <a href="#">Home</a>
-                                                    <ul class="ne-dropdown-menu">
-                                                        <li>
-                                                            <a href="index-2.html">Home 1</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="index2.html">Home 2</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="index3.html">Home 3</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="index4.html">Home 4</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="index5.html">Home 5</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="index6.html">Home 6</a>
-                                                        </li>
-                                                        <li class="active">
-                                                            <a href="index7.html">Home 7</a>
-                                                        </li>
-                                                    </ul>
                                                 </li>
                                                 <li>
                                                     <a href="#">Post</a>
-                                                    <ul class="ne-dropdown-menu">
-                                                        <li>
-                                                            <a href="post-style-1.html">Post Style 1</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="post-style-2.html">Post Style 2</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="post-style-3.html">Post Style 3</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="post-style-4.html">Post Style 4</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="single-news-1.html">News Details 1</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="single-news-2.html">News Details 2</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="single-news-3.html">News Details 3</a>
-                                                        </li>
-                                                    </ul>
                                                 </li>
                                                 <li>
-                                                    <a href="#">Pages</a>
-                                                    <ul class="ne-dropdown-menu">
-                                                        <li>
-                                                            <a href="author-post.html">Author Post Page</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="archive.html">Archive Page</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="gallery-style-1.html">Gallery Style 1</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="gallery-style-2.html">Gallery Style 2</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="404.html">404 Error Page</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="contact.html">Contact Page</a>
-                                                        </li>
-                                                    </ul>
+                                                    <a href="#">Pages</a> 
                                                 </li>
                                                 <li>
-                                                    <a href="post-style-1.html">Politics</a>
+                                                    <a href="#">Politics</a>
                                                 </li>
                                                 <li>
-                                                    <a href="post-style-2.html">Business</a>
+                                                    <a href="#">Business</a>
                                                 </li>
                                                 <li>
-                                                    <a href="post-style-3.html">Sports</a>
+                                                    <a href="#">Sports</a>
                                                 </li>
                                                 <li>
-                                                    <a href="post-style-4.html">Fashion</a>
+                                                    <a href="#">Fashion</a>
                                                 </li>
                                             </ul>
                                         </nav>
