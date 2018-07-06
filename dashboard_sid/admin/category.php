@@ -34,7 +34,9 @@ if(!isValidUser())   redirect("login.php"); ?>
 
 	//insert image
 	if(isset($_POST['add'])){
-		$cat_name = $_POST['category']; 
+		$cat_name = mysqli_real_escape_string($dblink,$_POST['category']); 
+		$go = check_category($cat_name,0);
+		if($go==1){
     	$ins_qry = "insert into news_category set category = '$cat_name'";
     	$ins_res = mysqli_query($dblink,$ins_qry);
     	if($ins_res){
@@ -44,21 +46,31 @@ if(!isValidUser())   redirect("login.php"); ?>
     		$msg = mysqli_error($dblink);
 		     echo '<script> my_function("Error in insert category"); </script>';
 		    }
+		}
+			else{
+			echo '<script> my_function("Sorry ! category already exist"); </script>';
+		}	
 	}
 	//insert image
 	if(isset($_POST['update'])){
 		
-		$id = $_POST['id'];
+		$id = mysqli_real_escape_string($dblink,$_POST['id']);
 		$cat_name = $_POST['category'];
+		$go = check_category($cat_name,$id);
+		if($go==1){
 	    	$upd_qry = "update news_category set category = '$cat_name' where id = $id";
 	    	$upd_res = mysqli_query($dblink,$upd_qry);
 	    	if($upd_res){
-	    		 echo '<script> success_message("","success","Category edited successfully","category.php"); </script>';
+	    		 echo '<script> success_message("","success","Category Updated successfully","category.php"); </script>';
 	    	}
 	    	else{
 	    		$msg = mysqli_error($dblink);
 			     echo '<script> my_function("Error in update category"); </script>';
 			    }
+			}
+			else{
+			echo '<script> my_function("Sorry ! category already exist"); </script>';
+		}	
 	   		
 		}
 ?>
@@ -174,7 +186,7 @@ if(!isValidUser())   redirect("login.php"); ?>
 	                                                        </form>
 	                                                         </li>
 	                                                         <li>
-														    <form method="post" action="sub_category.php">
+														    <form method="post" action="sub_category.php?pi=<?php echo $row['id']; ?>">
 															  <button class="butn" type="submit" data-toggle="tooltip" data-original-title="View Subcategory" > <i class="fa fa-eye text-inverse m-r-20"></i> </button>
 	                                                        </form>
 	                                                         </li>

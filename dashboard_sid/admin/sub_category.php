@@ -6,19 +6,19 @@
 if(!isValidUser())   redirect("login.php"); ?>
 <?php include("left_sidebar.php"); ?>
 <?php include("right_sidebar_backdrop.php"); 
-
+$parent_id = $_GET['pi'];
 	//delete image
 	if (isset($_POST['delete']))
 	{
-		
+		$parent_id = $_POST['parent_id'];
 		$id = $_POST['id'];
-			$del_qry = "update news_category set status = 1 where id = $id";
+		$del_qry = "update news_category set status = 1 where id = $id";
     	$del_res = mysqli_query($dblink,$del_qry);
     	if($del_res){
-    		 echo '<script> success_message("Success","success","Category deleted successfully","category.php"); </script>';
+    		 echo '<script> success_message("Success","success","Sub Category deleted successfully","sub_category.php?pi='.$parent_id.'"); </script>';
     	}
     	else{
-		     echo '<script> my_function("Error in delete category"); </script>';
+		     echo '<script> my_function("Error in delete Sub category"); </script>';
 		    }	
 	}
 	//delete image
@@ -26,40 +26,56 @@ if(!isValidUser())   redirect("login.php"); ?>
 	if(isset($_POST['edit']))
 	{
 		$id = $_POST['id'];
-		list($category) = exc_qry("select * from news_category where id = $id");
-		$cat_name = $category[0]['category'];
+		$parent_id = $_POST['parent_id'];
+		list($sub_category) = exc_qry("select * from news_category where id = $id");
+		$sub_cat_name = $sub_category[0]['category'];
 		//echo '<script> my_function("'.$img.'"); </script>';
 	}
 	
 
 	//insert image
 	if(isset($_POST['add'])){
-		$cat_name = $_POST['category']; 
-    	$ins_qry = "insert into news_category set category = '$cat_name'";
+		$parent_id = $_POST['parent_id'];
+		$cat_name = mysqli_real_escape_string($dblink,$_POST['category']); 
+		$go = check_category($cat_name,0);
+		if($go==1){
+    	$ins_qry = "insert into news_category set category = '$cat_name',parent_id=$parent_id";
     	$ins_res = mysqli_query($dblink,$ins_qry);
     	if($ins_res){
-    		 echo '<script> success_message("","success","category added successfully","category.php"); </script>';
+    		 echo '<script> success_message("","success","Sub category added successfully","sub_category.php?pi='.$parent_id.'"); </script>';
     	}
     	else{
     		$msg = mysqli_error($dblink);
-		     echo '<script> my_function("Error in insert category"); </script>';
+		     echo '<script> my_function("Error in insert sub category"); </script>';
 		    }
+		}
+		else{
+			echo '<script> my_function("Sorry ! category already exist"); </script>';
+		}	
 	}
 	//insert image
 	if(isset($_POST['update'])){
-		
+		$parent_id = $_POST['parent_id'];
 		$id = $_POST['id'];
-		$cat_name = $_POST['category'];
-	    	$upd_qry = "update news_category set category = '$cat_name' where id = $id";
-	    	$upd_res = mysqli_query($dblink,$upd_qry);
-	    	if($upd_res){
-	    		 echo '<script> success_message("","success","Category edited successfully","category.php"); </script>';
-	    	}
-	    	else{
-	    		$msg = mysqli_error($dblink);
-			     echo '<script> my_function("Error in update category"); </script>';
-			    }
-	   		
+		$cat_name = mysqli_real_escape_string($dblink,$_POST['category']);
+		$go = check_category($cat_name,$id);
+		if($go==1){
+		    	$upd_qry = "update news_category set category = '$cat_name' where id = $id";
+		    	$upd_res = mysqli_query($dblink,$upd_qry);
+		    	if($upd_res){
+		    		 echo '<script> success_message("","success","Sub Category Updated successfully","sub_category.php?pi='.$parent_id.'"); </script>';
+		    	}
+		    	else{
+		    		$msg = mysqli_error($dblink);
+				     echo '<script> my_function("Error in update sub category"); </script>';
+				    }
+				}
+		else{
+				echo '<script> my_function("Sorry ! category already exist"); </script>';
+			}		
+		}
+		if(!$parent_id>0){
+			header('location:category.php');
 		}
 ?>
 
@@ -102,18 +118,20 @@ if(!isValidUser())   redirect("login.php"); ?>
 													<form method="post">
 														<div class="form-group">
 															<label class="control-label mb-10" for="exampleInputuname_1">Sub Category *</label>
+															<input type="hidden" name="parent_id" value="<?php echo $parent_id ?>">
 															<input type="hidden" name="id" id="input1" value="<?php echo $id; ?>">
 															<div class="input-group">
 																<div class="input-group-addon"><i class="icon-user"></i></div>
-																<input type="text" class="form-control" id="input2" placeholder="Category" name="category" placeholder="Icon class name" required  value="<?php echo $cat_name; ?>">
+																<input type="text" class="form-control" id="input2" placeholder="Category" name="category" placeholder="Icon class name" required  value="<?php echo $sub_cat_name; ?>">
 															</div>
 														</div>
 														
 														<?php if($id>0){?>
 														<button class="btn  btn-success ml-10" type="submit" name="update">Update</button>
-														<button class="btn  btn-danger ml-10" type="button" onclick="window.location='category.php'">Cancel</button>	
+														<button class="btn  btn-danger ml-10" type="button" onclick="window.location='sub_category.php?pi=<?php echo $parent_id; ?>'">Cancel</button>	
 														<?php } else { ?>
 														<button class="btn  btn-success ml-10" type="submit" name="add">Add</button>
+														<button class="btn  btn-default ml-10" type="button" onclick="window.location='category.php'">Back</button>
 														<?php } ?>
 													</form>
 												</div>
@@ -145,7 +163,7 @@ if(!isValidUser())   redirect("login.php"); ?>
 													
 													<tbody>
 														 <?php								
-	                                                     $select_qry = "SELECT * FROM news_category where status = 0 and parent_id = 0 order by id desc";
+	                                                     $select_qry = "SELECT * FROM news_category where status = 0 and parent_id = $parent_id order by id desc";
 
 	                                                     $result = mysqli_query($dblink,$select_qry) or die("Cannot Fetch Data From Database" .mysqli_error($dblink));
 	                                                     	$a=1;
@@ -159,13 +177,15 @@ if(!isValidUser())   redirect("login.php"); ?>
 															<li>
 														    <form method="post">
 														    <input type="hidden" name="id" value="<?php echo $row['id'];?>">
+														    <input type="hidden" name="parent_id" value="<?php echo $parent_id;?>">
 															  <button class="butn" type="submit" data-toggle="tooltip" data-original-title="Edit" name="edit"> <i class="fa fa-pencil-alt text-inverse m-r-20"></i> </button>
 	                                                        </form>
 	                                                         </li>
 	                                                         <li>
 	                                                        <form method="post">
 	                                                          <input type="hidden" name="id" value="<?php echo $row['id'];?>">
-															  <button class="butn" type="submit" data-toggle="tooltip" data-original-title="Delete" name="delete" onclick="return confirm('Are you sure that you want to delete category?');"
+	                                                          <input type="hidden" name="parent_id" value="<?php echo $parent_id;?>">
+															  <button class="butn" type="submit" data-toggle="tooltip" data-original-title="Delete" name="delete" onclick="return confirm('Are you sure that you want to delete sub category?');"
 																> <i class="fa fa-trash text-danger m-r-20"></i> </button>
 															</form>
 															</li>

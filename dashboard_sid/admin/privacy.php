@@ -10,7 +10,7 @@ if(!isValidUser())   redirect("login.php"); ?>
 <!-- Main Content -->
 <?php
 if(isset($_POST['update'])) {
-	$description = $_POST['description'];
+	$description = mysqli_real_escape_string($dblink,$_POST['description']);
 	if(!strlen($description)>0) {
          	 echo '<script> my_function("Please Fill field"); </script>';
         }

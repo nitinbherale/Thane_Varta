@@ -92,6 +92,32 @@ function Forget_Password($email)
     else    {   $err='<p style="color: red;">Invalid Email ID.Please check</p>';    }
     return $err;
 }
+function check_category($catname,$id){
+    global $dblink;
+    if($id>0){
+        $qry = 'select * from news_category where id != '.$id.' and category like "'.$catname.'" and status = 0';
+        list($cat_count)=exc_qry($qry);
+         //echo "<script>window.alert('".count($cat_count)."')</script>";
+        if(count($cat_count)>0){
+            return 0;
+        }
+        else{
+            return 1;
+        }     
+    }
+    else
+    {
+        $qry = 'select * from news_category where category like "'.$catname.'" and status = 0';
+        list($cat_count)=exc_qry($qry);
+         //echo "<script>window.alert('".count($cat_count)."')</script>";
+        if(count($cat_count)>0){
+            return 0;
+        }
+        else{
+            return 1;
+        }     
+    }
+}
 function All_Delete($del_arr,$tbl_name)
 {
     global $dblink;
