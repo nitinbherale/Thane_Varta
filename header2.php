@@ -62,7 +62,7 @@
                                                             <a href="single-news-2.html">News Details 2</a>
                                                         </li>
                                                         <li class="active">
-                                                            <a href="single-news-3.html">News Details 3</a>
+                                                            <a href="single-news-3.html">News Details 3</a>jj
                                                         </li>
                                                     </ul>
                                                 </li>
