@@ -43,11 +43,11 @@
                                             <div class="topic-box-top-xs">
                                                 <div class="topic-box-sm color-cod-gray mb-20">Nature</div>
                                             </div>
-                                            <a href="single-news-1.html" class="mb-10 display-block img-opacity-hover">
+                                            <a href="#" class="mb-10 display-block img-opacity-hover">
                                                 <img src="img/news/news171.jpg" alt="ad" class="img-fluid m-auto width-100">
                                             </a>
                                             <h3 class="title-medium-dark size-md mb-none">
-                                                <a href="single-news-1.html">Rosie Huntington Whitl Habits Career Art.Rosie TBeauty Habits.</a>
+                                                <a href="#">Rosie Huntington Whitl Habits Career Art.Rosie TBeauty Habits.</a>
                                             </h3>
                                         </div>
                                     </div>
@@ -56,11 +56,11 @@
                                             <div class="topic-box-top-xs">
                                                 <div class="topic-box-sm color-cod-gray mb-20">Application</div>
                                             </div>
-                                            <a href="single-news-1.html" class="mb-10 display-block img-opacity-hover">
+                                            <a href="#" class="mb-10 display-block img-opacity-hover">
                                                 <img src="img/news/news172.jpg" alt="ad" class="img-fluid m-auto width-100">
                                             </a>
                                             <h3 class="title-medium-dark size-md mb-none">
-                                                <a href="single-news-1.html">Rosie Huntington Whitl Habits Career Art.Rosie TBeauty Habits.</a>
+                                                <a href="#">Rosie Huntington Whitl Habits Career Art.Rosie TBeauty Habits.</a>
                                             </h3>
                                         </div>
                                     </div>
@@ -69,11 +69,11 @@
                                             <div class="topic-box-top-xs">
                                                 <div class="topic-box-sm color-cod-gray mb-20">Life Style</div>
                                             </div>
-                                            <a href="single-news-1.html" class="mb-10 display-block img-opacity-hover">
+                                            <a href="#" class="mb-10 display-block img-opacity-hover">
                                                 <img src="img/news/news173.jpg" alt="ad" class="img-fluid m-auto width-100">
                                             </a>
                                             <h3 class="title-medium-dark size-md mb-none">
-                                                <a href="single-news-1.html">Rosie Huntington Whitl Habits Career Art.Rosie TBeauty Habits.</a>
+                                                <a href="#">Rosie Huntington Whitl Habits Career Art.Rosie TBeauty Habits.</a>
                                             </h3>
                                         </div>
                                     </div>
@@ -82,11 +82,11 @@
                                             <div class="topic-box-top-xs">
                                                 <div class="topic-box-sm color-cod-gray mb-20">Technology</div>
                                             </div>
-                                            <a href="single-news-1.html" class="mb-10 display-block img-opacity-hover">
+                                            <a href="#" class="mb-10 display-block img-opacity-hover">
                                                 <img src="img/news/news174.jpg" alt="ad" class="img-fluid m-auto width-100">
                                             </a>
                                             <h3 class="title-medium-dark size-md mb-none">
-                                                <a href="single-news-1.html">Rosie Huntington Whitl Habits Career Art.Rosie TBeauty Habits.</a>
+                                                <a href="#">Rosie Huntington Whitl Habits Career Art.Rosie TBeauty Habits.</a>
                                             </h3>
                                         </div>
                                     </div>
@@ -95,11 +95,11 @@
                                             <div class="topic-box-top-xs">
                                                 <div class="topic-box-sm color-cod-gray mb-20">Accessories</div>
                                             </div>
-                                            <a href="single-news-1.html" class="mb-10 display-block img-opacity-hover">
+                                            <a href="#" class="mb-10 display-block img-opacity-hover">
                                                 <img src="img/news/news175.jpg" alt="ad" class="img-fluid m-auto width-100">
                                             </a>
                                             <h3 class="title-medium-dark size-md mb-none">
-                                                <a href="single-news-1.html">Rosie Huntington Whitl Habits Career Art.Rosie TBeauty Habits.</a>
+                                                <a href="#">Rosie Huntington Whitl Habits Career Art.Rosie TBeauty Habits.</a>
                                             </h3>
                                         </div>
                                     </div>
@@ -108,11 +108,11 @@
                                             <div class="topic-box-top-xs">
                                                 <div class="topic-box-sm color-cod-gray mb-20">Model</div>
                                             </div>
-                                            <a href="single-news-1.html" class="mb-10 display-block img-opacity-hover">
+                                            <a href="#" class="mb-10 display-block img-opacity-hover">
                                                 <img src="img/news/news176.jpg" alt="ad" class="img-fluid m-auto width-100">
                                             </a>
                                             <h3 class="title-medium-dark size-md mb-none">
-                                                <a href="single-news-1.html">Rosie Huntington Whitl Habits Career Art.Rosie TBeauty Habits.</a>
+                                                <a href="#">Rosie Huntington Whitl Habits Career Art.Rosie TBeauty Habits.</a>
                                             </h3>
                                         </div>
                                     </div>
@@ -179,7 +179,7 @@
                                         <div class="topic-box-sm color-cod-gray mb-20">Apple</div>
                                     </div>
                                     <div class="media">
-                                        <a class="img-opacity-hover" href="single-news-1.html">
+                                        <a class="img-opacity-hover" href="#">
                                             <img src="img/news/news117.jpg" alt="news" class="img-fluid">
                                         </a>
                                         <div class="media-body">
@@ -192,7 +192,7 @@
                                                 </ul>
                                             </div>
                                             <h3 class="title-medium-dark mb-none">
-                                                <a href="single-news-2.html">Can Be Monit roade year with Program.</a>
+                                                <a href="#">Can Be Monit roade year with Program.</a>
                                             </h3>
                                         </div>
                                     </div>
@@ -202,7 +202,7 @@
                                         <div class="topic-box-sm color-cod-gray mb-20">Gadgets</div>
                                     </div>
                                     <div class="media">
-                                        <a class="img-opacity-hover" href="single-news-2.html">
+                                        <a class="img-opacity-hover" href="#">
                                             <img src="img/news/news118.jpg" alt="news" class="img-fluid">
                                         </a>
                                         <div class="media-body">
@@ -215,7 +215,7 @@
                                                 </ul>
                                             </div>
                                             <h3 class="title-medium-dark mb-none">
-                                                <a href="single-news-3.html">Can Be Monit roade year with Program.</a>
+                                                <a href="#">Can Be Monit roade year with Program.</a>
                                             </h3>
                                         </div>
                                     </div>
@@ -225,7 +225,7 @@
                                         <div class="topic-box-sm color-cod-gray mb-20">Software</div>
                                     </div>
                                     <div class="media">
-                                        <a class="img-opacity-hover" href="single-news-3.html">
+                                        <a class="img-opacity-hover" href="#">
                                             <img src="img/news/news119.jpg" alt="news" class="img-fluid">
                                         </a>
                                         <div class="media-body">
@@ -238,7 +238,7 @@
                                                 </ul>
                                             </div>
                                             <h3 class="title-medium-dark mb-none">
-                                                <a href="single-news-1.html">Can Be Monit roade year with Program.</a>
+                                                <a href="#">Can Be Monit roade year with Program.</a>
                                             </h3>
                                         </div>
                                     </div>
@@ -248,7 +248,7 @@
                                         <div class="topic-box-sm color-cod-gray mb-20">Tech</div>
                                     </div>
                                     <div class="media">
-                                        <a class="img-opacity-hover" href="single-news-1.html">
+                                        <a class="img-opacity-hover" href="#">
                                             <img src="img/news/news120.jpg" alt="news" class="img-fluid">
                                         </a>
                                         <div class="media-body">
@@ -261,7 +261,7 @@
                                                 </ul>
                                             </div>
                                             <h3 class="title-medium-dark mb-none">
-                                                <a href="single-news-2.html">Can Be Monit roade year with Program.</a>
+                                                <a href="#">Can Be Monit roade year with Program.</a>
                                             </h3>
                                         </div>
                                     </div>
@@ -271,7 +271,7 @@
                                         <div class="topic-box-sm color-cod-gray mb-20">Ipad</div>
                                     </div>
                                     <div class="media">
-                                        <a class="img-opacity-hover" href="single-news-1.html">
+                                        <a class="img-opacity-hover" href="#">
                                             <img src="img/news/news121.jpg" alt="news" class="img-fluid">
                                         </a>
                                         <div class="media-body">
@@ -284,7 +284,7 @@
                                                 </ul>
                                             </div>
                                             <h3 class="title-medium-dark mb-none">
-                                                <a href="single-news-2.html">Can Be Monit roade year with Program.</a>
+                                                <a href="#">Can Be Monit roade year with Program.</a>
                                             </h3>
                                         </div>
                                     </div>
