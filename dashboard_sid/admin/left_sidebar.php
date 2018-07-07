@@ -25,7 +25,7 @@
 							<a href="category.php">Category</a>
 						</li>
 						<li>
-							<a href="home_services.php">News</a>
+							<a href="news.php">News</a>
 						</li>						
 					</ul>
 				</li>
@@ -36,7 +36,7 @@
 					<a href="user.php"><div class="pull-left"><i class="fa fa-audio-description mr-20"></i><span class="right-nav-text">Advertisement </span></div><div class="pull-right"></div><div class="clearfix"></div></a>
 				</li>
 				<li>
-					<a href="user.php"><div class="pull-left"><i class="fa fa-pen-alt mr-20"></i><span class="right-nav-text">Terms And Conditions </span></div><div class="pull-right"></div><div class="clearfix"></div></a>
+					<a href="terms_and_conditions.php"><div class="pull-left"><i class="fa fa-pen-alt mr-20"></i><span class="right-nav-text">Terms And Conditions </span></div><div class="pull-right"></div><div class="clearfix"></div></a>
 				</li>
 				
 				<!-- <li>
