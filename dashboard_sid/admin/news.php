@@ -1,62 +1,13 @@
 <link href="vendors/bower_components/dropify/dist/css/dropify.min.css" rel="stylesheet" type="text/css"/>
+<link href="../../vendors/bower_components/datatables/media/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
 <div class="wrapper theme-1-active pimary-color-blue">
 
-<?php include("header.php"); if(!isValidUser())   redirect("login.php");  ?>
+<?php include("header.php");
+if(!isValidUser())   redirect("login.php"); ?>
 <?php include("left_sidebar.php") ?>
 
 <?php include("right_sidebar_backdrop.php") ?>
-<?php
-  if (isset($_POST['add'])) {
 
-     $trustee_name = mysqli_real_escape_string($dblink,$_POST['trustee_name']);
-     $seniority = mysqli_real_escape_string($dblink,$_POST['seniority']);
-     $role = mysqli_real_escape_string($dblink,$_POST['role']);
-     $img = $_FILES['trustee_img']; //image
-     $tmp_name = strtolower(time()."_".$img['name']);
-     $imgpath = "../../images/trustees/";
-     $go = 1;
-
-   
-
-     if(!move_uploaded_file($img["tmp_name"],$imgpath.$tmp_name))//storing image in file
-     {
-         echo '<script> my_function("File Upload File"); </script>';
-			$go = 0;
-        }
-    if($go==1){
-   		$insert_query = "INSERT INTO trustees (trustee_name, trustee_work, trustee_image ,seniority)
-           VALUES ('$trustee_name', '$role', '$tmp_name' ,$seniority)";
-       	$run_query = mysqli_query($dblink,$insert_query);
-
-        if ($run_query) {
-        	echo '<script> success_message("Success","success","Added Successfully","trustees.php"); </script>';
-        }
-        else{
-        	echo '<script> my_function("Error"); </script>';
-        }
-        }
-
-  }
-  if (isset($_POST['delete'])) {
-                       
-       $id = $_POST['id'];
-
-    $del_query = "update trustees set status = 1 WHERE trustee_id = '$id' ";
-
-    $run_query = mysqli_query($dblink,$del_query);
-
-    if ($run_query) {
-    	//echo "<script>alert('".$del_query."');</script>";
-    	echo '<script> success_message("Success","success","Deleted","trustees.php"); </script>';
-    }
-    else{
-    	$msg = mysqli_error($dblink);
-			echo '<script> my_function("Error"); </script>';
-    }
-  }
-
-?>
-					
 <!-- Main Content -->
 			<div class="page-wrapper">
 				<div class="container-fluid">
@@ -67,6 +18,61 @@
 							<h5 class="txt-dark">News</h5>
 						</div>
 
+						<?php
+                          if (isset($_POST['delete'])) {
+                          	 $id = $_POST['id'];
+                          	 $del_query = "update news set status = 1 WHERE id = '$id' ";
+
+					        $run_query = mysqli_query($dblink,$del_query);
+
+					        if ($run_query) {
+					        	echo '<script> success_message("Success","success","News Deleted Succesfully","news.php");  </script>';
+					        }
+					        else{
+					        	$msg = mysqli_error($dblink);
+									echo '<script> my_function("Error in news delete");  </script>';
+					        }
+                          }
+
+                          if(isset($_POST["set_top"]))
+							{
+							    $Chk_box = $_POST["chk_box"]; // print_r($Chk_box);
+							    $msg = Set_Top($Chk_box,'news');
+							    if($msg=="Please select data "){
+							    	echo '<script> my_function("Please select news");  </script>';
+							    }
+							    elseif($msg=="Success"){
+							    	echo '<script> success_message("Success","success","Request Completed","news.php");  </script>';
+							    }
+							   // list($TtlPg,$Pg,$resultArray,$Ttl)=listdata($Pg,$tblname);  
+							    //redirect("news.php");
+							}
+							if (isset($_POST['delete_selected'])) {
+								$Chk_box = $_POST["chk_box"];
+								$array = $Chk_box[0];
+								if (count($Chk_box)==0)
+								    {
+								        echo '<script> my_function("Please select news");  </script>';
+								    }
+								    else{
+								    		for($i=1;$i<count($Chk_box);$i++)
+            								{
+            									$array .= ",".$Chk_box[$i];
+            								}
+								    		$del_query = "update news set status = 1 WHERE id in (".$array.")";
+								    		//echo '<script> my_function("'.$del_query.'");  </script>';
+					        				$run_query = mysqli_query($dblink,$del_query);
+					        				 if ($run_query) {
+									        	echo '<script> success_message("Success","success","News Deleted Succesfully","news.php");  </script>';
+									        }
+									        else{
+									        	$msg = mysqli_error($dblink);
+													echo '<script> my_function("Error in news delete");  </script>';
+									        }
+								    }
+							}                       
+                        ?>
+						
 						<!-- Breadcrumb -->
 						<div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
 							<ol class="breadcrumb">
@@ -78,104 +84,97 @@
 					
 					</div>
 					<!-- /Title -->
-					
-					<!-- Row -->
+					<!-- /Row -->	
+							
 					<div class="row">
-						<div class="col-md-12">
+						<div class="col-sm-12">
 							<div class="panel panel-default card-view">
-								<div class="panel-heading">
-									<div class="pull-left">
-										<h6 class="panel-title txt-dark">News</h6>
-									</div>
-									<div class="clearfix"></div>
-								</div>
+								<button class="btn btn-success" onclick="window.location='add_news.php'">Add News + </button>
 								<div class="panel-wrapper collapse in">
 									<div class="panel-body">
-										<div class="row">
-											<div class="col-sm-12 col-xs-12">
-												<div class="form-wrap">
-													<form method="post" action="" enctype="multipart/form-data">
-														<div class="form-group">
-															<label class="control-label mb-10" for="exampleInputuname_1">Title *</label>
-															<div class="input-group">
-																<div class="input-group-addon"><i class="icon-user"></i></div>
-																<input type="text" class="form-control" id="exampleInputuname_1" placeholder="Heading of news" name="trustee_name" required>
-															</div>
-														</div>
-														<div class="form-group">
-															<label class="control-label mb-10" for="exampleInputuname_1">Description *</label>
-															<div class="input-group">
-																<div class="input-group-addon"><i class="icon-user"></i></div>
-																<textarea type="text" class="form-control" id="exampleInputuname_1" rows="5" placeholder="Description of news" name="trustee_name" required></textarea> 
-															</div>
-														</div>
-														<div class="form-group">
-															<label class="control-label mb-10" for="exampleInputEmail_1">News Image *</label>
-															<div class="input-group">
-																<div class="input-group-addon"><i class="icon-envelope-open"></i></div>
-																<input type="file"  name="img" accept="image/gif, image/jpg, image/jpeg, image/png"  id="input-file-max-fs" class="dropify"  data-max-file-size="2M"  data-default-file="../../images/stories/<?php echo $img; ?>" <?php if($id>0){} else{echo "required";} ?> />
-															</div>
-														</div>
+										<form id="form_set" method="post">
+											<button type="submit" class="btn btn-success mr-10" name="set_top">Set Top</button>
+											<button type="submit" class="btn btn-danger mr-10" name="delete_selected">Delete Selected</button>
+										</form>
+										<div class="table-wrap">
+											<div class="table-responsive">
+												<table id="datable_1" class="table table-hover table-bordered display  pb-30" >
+
+													<thead>
 														
-														<div class="form-group">
-															<label class="control-label mb-10" for="exampleInputuname_1">Author *</label>
-															<div class="input-group">
-																<div class="input-group-addon"><i class="icon-user"></i></div>
-																<input type="text" class="form-control" id="exampleInputuname_1" placeholder="Author of news" name="trustee_name" required>
-															</div>
-														</div>
-														<div class="form-group">
-															<label class="control-label mb-10" for="exampleInputuname_1">News Tags *</label>
-															<div class="input-group">
-																<div class="input-group-addon"><i class="icon-user"></i></div>
-																<input type="text" class="form-control" id="exampleInputuname_1" placeholder="News Tags" name="trustee_name" required>
-															</div>
-														</div>
-														<div class="form-group">
-															<label class="control-label mb-10" for="exampleInputuname_1">Meta Keywords *</label>
-															<div class="input-group">
-																<div class="input-group-addon"><i class="icon-user"></i></div>
-																<input type="text" class="form-control" id="exampleInputuname_1" placeholder="Meta Keywords" name="trustee_name" required>
-															</div>
-														</div>
-														<div class="form-group">
-															<label class="control-label mb-10" for="exampleInputuname_1">Meta Description *</label>
-															<div class="input-group">
-																<div class="input-group-addon"><i class="icon-user"></i></div>
-																<textarea type="text" class="form-control" id="exampleInputuname_1" rows="5" placeholder="Meta Description" name="trustee_name" required></textarea> 
-															</div>
-														</div>
-														<div class="form-group">
-															<label class="control-label mb-10" for="exampleInputpwd_1"> Category</label>
-															<div class="input-group">
-																<div class="input-group-addon"><i class="icon-lock"></i></div>
-																<select class="form-control">
-																	<option>Demo</option>
-																</select>
-															</div>
-														</div>
-														<div class="form-group">
-															<label class="control-label mb-10" for="exampleInputpwd_1"> Sub Category</label>
-															<div class="input-group">
-																<div class="input-group-addon"><i class="icon-lock"></i></div>
-																<select class="form-control">
-																	<option>Demo</option>
-																</select>
-															</div>
-														</div>
-														<button type="submit" class="btn btn-success mr-10" name="add">Add</button>
-													</form>
-												</div>
+														<tr>
+															<th>Id</th>
+															<th>Title</th>
+															<th>Description</th>
+															<th>Author</th>
+															<th>Image</th>
+															<th>Category</th>
+															<th>Post Date</th>
+															<th>Actions</th>
+														</tr>
+													</thead>
+													
+													<tbody>
+
+														 <?php														
+
+	                                                     $select_qry = "SELECT * FROM news where status = 0 order by id desc";
+
+	                                                     $result = mysqli_query($dblink,$select_qry) or die("Cannot Fetch Data From Database" .mysqli_error($dblink));
+	                                                     	$id=1;
+	                                                      while ($row = mysqli_fetch_assoc($result)) { ?>
+	                                                       
+													   <tr>
+														  <td>
+														  	<?php $top = $row["top"]; if($top==1){echo ' <span class="fa fa-chevron-up" style="background-color:#3485dc;color:white;border-radius:50%;padding:5px;margin-bottom:5px"></span>';}?>
+														  	<?php echo $id; ?>
+														  	<input form="form_set" type="checkbox" value="<?php echo $row["id"];?>" name="chk_box[]" />
+														  </td>
+														  <td> <?php echo $row['heading']; ?></td>
+														   <td> <?php $description = substr($row['content'],0,100);
+														   if(substr($description, 0, strrpos($description, ' '))!='') $description = substr($description, 0, strrpos($description, ' ')); echo $description." ..."; ?>
+														   </td>
+														   <td> <?php echo $row['author']; ?></td>
+														  <td><img src="../../img/news/<?php echo $row['img']; ?>" class="img img-wd-200"> </td>
+														  <td><?php 
+								                          $parid=$row['category'];
+								                       		echo $getcat = GetCatNm($parid);
+								                            ?></td>
+														  <td><?php echo $row['post_date']; ?></td>
+														  <td class="text-nowrap">
+														    <ul>
+														    	<li>
+															    <form method="post" action="edit_news.php">
+																    <input type="hidden" name="id" value="<?php echo $row['id'];?>">
+																	  <button class="butn" type="submit" data-toggle="tooltip" data-original-title="Edit" name="edit"> <i class="fa fa-pencil-alt text-inverse m-r-10"></i> </button>
+		                                                        </form>
+		                                                         </li>
+		                                                         <li> 	
+		                                                        <form method="post">
+		                                                          <input type="hidden" name="id" value="<?php echo $row['id'];?>">
+																  <button class="butn" type="submit" data-toggle="tooltip" data-original-title="Delete" name="delete" onclick="return confirm('Are you sure that you want to delete news?');" > <i class="fa fa-trash text-danger"></i> </button>
+																</form>
+																</li>
+																<li> 	
+		                                                        <form method="post">
+		                                                          <input type="hidden" name="id" value="<?php echo $row['id'];?>">
+																  <button class="butn" type="submit" data-toggle="tooltip" data-original-title="Comments" name="delete" onclick="return confirm('Are you sure that you want to delete news?');" > <i class="fa fa-comments text-success"></i> </button>
+																</form>
+																</li>
+															</ul>
+														  </td>
+														</tr>
+														<?php $id++; } ?>
+														
+													</tbody>
+												</table>
 											</div>
 										</div>
 									</div>
 								</div>
-							</div>
+							</div>	
 						</div>
-					</div>
-					<!-- /Row -->	
-						
-		
+					</div>				
 				
 				</div>
 				
@@ -188,36 +187,33 @@
 					</div>
 				</footer>
 				<!-- /Footer -->
-
-				<script type="text/javascript" src="ckeditor/ckeditor.js"></script>
-				<script type="text/javascript">
-	                 CKEDITOR.replace('myeditor');
-                 </script>
 			
 			</div>
 			<!-- /Main Content -->
-
  </div><!--wrapper End-->
-	<script src="dist/js/dataTables-data.js"></script>	
- <script src="vendors/bower_components/dropify/dist/js/dropify.min.js"></script>		
+
+<script src="vendors/bower_components/dropify/dist/js/dropify.min.js"></script>	
+<script src="../../vendors/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
+	<script src="dist/js/dataTables-data.js"></script>		
 		<!-- Form Flie Upload Data JavaScript -->
 <script src="dist/js/form-file-upload-data.js"></script>
+
 <style type="text/css">
-	input[type='number'] {
-    -moz-appearance:textfield;
-}
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-thead{background:#f05737;}
- .table > thead > tr > th{color: #fff;font-weight: 600;font-size: 14px;}
- .butn {background-color: transparent;border: none;}
- 
- .oneline
-{
+	.img-wd-200{width: 150px;}
+	.butn{border: none;background: transparent;}
+td ul{
   display:flex;  
   list-style:none;
 }
+thead{background:#f05737;}
+ .table > thead > tr > th {color: #fff;font-weight: 600;font-size: 14px;}
 </style>
+<script>
+function testInput(event) {
+   var value = String.fromCharCode(event.which);
+   var pattern = new RegExp(/[a-zåäö ]/i);
+   return pattern.test(value);
+}
+
+$('#person').bind('keypress', testInput);
+</script>

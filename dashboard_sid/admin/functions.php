@@ -12,7 +12,16 @@ function isValidUser()
     if(mysqli_num_rows($result_sel)>0) return 1;
     else    return 0;
 }
-
+  function GetCatNm($rec_id)
+    {
+        global $dblink;
+        $qry="select * from news_category where id= '".$rec_id."'";
+        // echo $qry;
+        $GtId=mysqli_query($dblink,$qry);
+        $GtId=mysqli_fetch_array($GtId);
+        $CatNm=$GtId["category"];
+        return $CatNm;
+    }
 function exc_qry($qry)
 	{
 		//echo "this get called";
@@ -151,29 +160,29 @@ function Set_Top($del_arr,$tbl_name)
         $msg = "Please select data ";
     }
     else{
-    for($i=0;$i<count($del_arr);$i++)
-        {
-     $QryChkFaqExists="select * from $tbl_name where id=$del_arr[$i]";
-    $ResChkFaqExists=mysqli_query($dblink,$QryChkFaqExists);
-    mysqli_num_rows($ResChkFaqExists);
-    if(mysqli_num_rows($ResChkFaqExists)>0)
-    {  
-       $row=mysqli_fetch_array($ResChkFaqExists);
-    //break;
-       if ($row["top"]==0)
-        {
-         $QryDelFaq="update $tbl_name set top=1 where id=$del_arr[$i]"; 
-        }
-        else
-        {
-         $QryDelFaq="update $tbl_name set top=0 where id=$del_arr[$i]";
-        }
-        //echo $QryDelFaq;
-        if(mysqli_query($dblink,$QryDelFaq))    $msg="Success";
-        
-    }
-    else    $msg="Content does not exist.";
-        }
+        for($i=0;$i<count($del_arr);$i++)
+            {
+             $QryChkFaqExists="select * from $tbl_name where id=$del_arr[$i]";
+            $ResChkFaqExists=mysqli_query($dblink,$QryChkFaqExists);
+            mysqli_num_rows($ResChkFaqExists);
+            if(mysqli_num_rows($ResChkFaqExists)>0)
+            {  
+               $row=mysqli_fetch_array($ResChkFaqExists);
+            //break;
+               if ($row["top"]==0)
+                {
+                 $QryDelFaq="update $tbl_name set top=1 where id=$del_arr[$i]"; 
+                }
+                else
+                {
+                 $QryDelFaq="update $tbl_name set top=0 where id=$del_arr[$i]";
+                }
+                //echo $QryDelFaq;
+                if(mysqli_query($dblink,$QryDelFaq))    $msg="Success";
+                
+            }
+            else   { $msg="Content does not exist."; }
+            }
         }        
     return $msg;
 }

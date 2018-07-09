@@ -40,7 +40,7 @@ if(!isValidUser())   redirect("login.php"); ?>
                              }
 	                         elseif(!move_uploaded_file($img["tmp_name"],$imgpath.$tmp_name))//storing image in file
                              {
-                             	echo '<script> my_function("Image Upload File"); </script>';
+                             	echo '<script> my_function("Image Upload Failed"); </script>';
             					$go = 0;
                              
                              }

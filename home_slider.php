@@ -1,4 +1,7 @@
-<!-- Slider Area Start Here -->
+<?php $news_qry = "select * from news where status = 0 order by top desc,post_date desc,id desc";  
+ list($news_result) = exc_qry($news_qry);
+ ?>
+    <!-- Slider Area Start Here -->
             <section class="section-space-bottom">
                 <div class="container">
                     <div class="row no-gutters">
@@ -6,35 +9,41 @@
                             <div class="main-slider1 img-overlay-slider">
                                 <div class="bend niceties preview-1">
                                     <div id="ensign-nivoslider-3" class="slides">
-                                        <img src="img/banner/slide1.jpg" alt="slider" title="#slider-direction-1" />
-                                        <img src="img/banner/slide2.jpg" alt="slider" title="#slider-direction-2" />
-                                        <img src="img/banner/slide3.jpg" alt="slider" title="#slider-direction-3" />
+                                        <?php   for($i=0;$i<3;$i++) {?>
+                                        <img src="img/news/<?php echo $news_result[$i]['img']; ?>" alt="slider" title="#slider-direction-<?php echo $news_result[$i]['id']; ?>" />
+                                    <?php } ?>
+                                       <!--  <img src="img/banner/slide2.jpg" alt="slider" title="#slider-direction-2" />
+                                        <img src="img/banner/slide3.jpg" alt="slider" title="#slider-direction-3" /> -->
                                     </div>
                                     <!-- direction 1 -->
-                                    <div id="slider-direction-1" class="t-cn slider-direction">
+                                    <?php   for($i=0;$i<3;$i++) {?>
+                                    <div id="slider-direction-<?php echo $news_result[$i]['id']; ?>" class="t-cn slider-direction">
                                         <div class="slider-content s-tb slide-1">
                                             <div class="title-container s-tb-c">
                                                 <div class="text-left pl-50 pl20-xs">
-                                                    <div class="topic-box-sm color-cinnabar mb-20">Beef Pizza</div>
+                                                    <div class="topic-box-sm color-cinnabar mb-20"><?php echo get_cat_name($news_result[$i]['category']) 
+                                                    ?></div>
                                                     <div class="post-date-light d-none d-sm-block">
                                                         <ul>
                                                             <li>
                                                                 <span>by</span>
-                                                                <a href="single-news-1.html">Adams</a>
+                                                                <a href="single-news-1.html"><?php echo $news_result[$i]['author']; ?></a>
                                                             </li>
                                                             <li>
                                                                 <span>
                                                                     <i class="fa fa-calendar" aria-hidden="true"></i>
-                                                                </span>March 22, 2017</li>
+                                                                </span><?php echo date("F d, Y", strtotime($news_result[$i]['post_date'])); ?> <!--March 22, 2017-->
+                                                            </li>
                                                         </ul>
                                                     </div>
-                                                    <div class="slider-title">Dhakaika Boti kebab is here summer drinks Recipe by Healthy Kadai</div>
+                                                    <div class="slider-title"><?php echo $news_result[$i]['heading']; ?></div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                <?php } ?>
                                     <!-- direction 2 -->
-                                    <div id="slider-direction-2" class="t-cn slider-direction">
+                                  <!--   <div id="slider-direction-2" class="t-cn slider-direction">
                                         <div class="slider-content s-tb slide-2">
                                             <div class="title-container s-tb-c">
                                                 <div class="text-left pl-50 pl20-xs">
@@ -55,30 +64,8 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <!-- direction 3 -->
-                                    <div id="slider-direction-3" class="t-cn slider-direction">
-                                        <div class="slider-content s-tb slide-3">
-                                            <div class="title-container s-tb-c">
-                                                <div class="text-left pl-50 pl20-xs">
-                                                    <div class="topic-box-sm color-cinnabar mb-20">Vegetable Roll</div>
-                                                    <div class="post-date-light d-none d-sm-block">
-                                                        <ul>
-                                                            <li>
-                                                                <span>by</span>
-                                                                <a href="single-news-1.html">Adams</a>
-                                                            </li>
-                                                            <li>
-                                                                <span>
-                                                                    <i class="fa fa-calendar" aria-hidden="true"></i>
-                                                                </span>March 22, 2017</li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="slider-title">Vegetable Roll is here for your healthy, red chili spicy breakfast</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
