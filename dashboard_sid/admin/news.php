@@ -1,5 +1,4 @@
-<link href="../../vendors/bower_components/dropify/dist/css/dropify.min.css" rel="stylesheet" type="text/css"/>
-<link href="../../vendors/bower_components/datatables/media/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
+<link href="vendors/bower_components/dropify/dist/css/dropify.min.css" rel="stylesheet" type="text/css"/>
 <div class="wrapper theme-1-active pimary-color-blue">
 
 <?php include("header.php"); if(!isValidUser())   redirect("login.php");  ?>
@@ -97,33 +96,71 @@
 												<div class="form-wrap">
 													<form method="post" action="" enctype="multipart/form-data">
 														<div class="form-group">
-															<label class="control-label mb-10" for="exampleInputuname_1">Name Of Trustee *</label>
+															<label class="control-label mb-10" for="exampleInputuname_1">Title *</label>
 															<div class="input-group">
 																<div class="input-group-addon"><i class="icon-user"></i></div>
-																<input type="text" class="form-control" id="exampleInputuname_1" placeholder="Name of Trustee" name="trustee_name" required>
+																<input type="text" class="form-control" id="exampleInputuname_1" placeholder="Heading of news" name="trustee_name" required>
 															</div>
 														</div>
 														<div class="form-group">
-															<label class="control-label mb-10" for="exampleInputEmail_1">Trustee Image *</label>
+															<label class="control-label mb-10" for="exampleInputuname_1">Description *</label>
+															<div class="input-group">
+																<div class="input-group-addon"><i class="icon-user"></i></div>
+																<textarea type="text" class="form-control" id="exampleInputuname_1" rows="5" placeholder="Description of news" name="trustee_name" required></textarea> 
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="control-label mb-10" for="exampleInputEmail_1">News Image *</label>
 															<div class="input-group">
 																<div class="input-group-addon"><i class="icon-envelope-open"></i></div>
-																<input type="file"  name="trustee_img" accept="image/gif, image/jpg, image/jpeg, image/png" required="required" id="input-file-max-fs" class="dropify" data-max-file-size="2M" />
+																<input type="file"  name="img" accept="image/gif, image/jpg, image/jpeg, image/png"  id="input-file-max-fs" class="dropify"  data-max-file-size="2M"  data-default-file="../../images/stories/<?php echo $img; ?>" <?php if($id>0){} else{echo "required";} ?> />
 															</div>
 														</div>
 														
 														<div class="form-group">
-															<label class="control-label mb-10" for="exampleInputpwd_1">Role</label>
+															<label class="control-label mb-10" for="exampleInputuname_1">Author *</label>
 															<div class="input-group">
-																<div class="input-group-addon"><i class="icon-lock"></i></div>
-																<input type="text" name="role" required="required"  class="form-control"  placeholder="Role">
+																<div class="input-group-addon"><i class="icon-user"></i></div>
+																<input type="text" class="form-control" id="exampleInputuname_1" placeholder="Author of news" name="trustee_name" required>
 															</div>
 														</div>
-
 														<div class="form-group">
-															<label class="control-label mb-10" for="exampleInputpwd_1"> Seniority (0 to 100)</label>
+															<label class="control-label mb-10" for="exampleInputuname_1">News Tags *</label>
+															<div class="input-group">
+																<div class="input-group-addon"><i class="icon-user"></i></div>
+																<input type="text" class="form-control" id="exampleInputuname_1" placeholder="News Tags" name="trustee_name" required>
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="control-label mb-10" for="exampleInputuname_1">Meta Keywords *</label>
+															<div class="input-group">
+																<div class="input-group-addon"><i class="icon-user"></i></div>
+																<input type="text" class="form-control" id="exampleInputuname_1" placeholder="Meta Keywords" name="trustee_name" required>
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="control-label mb-10" for="exampleInputuname_1">Meta Description *</label>
+															<div class="input-group">
+																<div class="input-group-addon"><i class="icon-user"></i></div>
+																<textarea type="text" class="form-control" id="exampleInputuname_1" rows="5" placeholder="Meta Description" name="trustee_name" required></textarea> 
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="control-label mb-10" for="exampleInputpwd_1"> Category</label>
 															<div class="input-group">
 																<div class="input-group-addon"><i class="icon-lock"></i></div>
-																<input type="number" name="seniority" min="0" max="100" class="form-control"  placeholder="Seniority " required="required">
+																<select class="form-control">
+																	<option>Demo</option>
+																</select>
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="control-label mb-10" for="exampleInputpwd_1"> Sub Category</label>
+															<div class="input-group">
+																<div class="input-group-addon"><i class="icon-lock"></i></div>
+																<select class="form-control">
+																	<option>Demo</option>
+																</select>
 															</div>
 														</div>
 														<button type="submit" class="btn btn-success mr-10" name="add">Add</button>
@@ -138,69 +175,7 @@
 					</div>
 					<!-- /Row -->	
 						
-						<div class="row">
-						<div class="col-sm-12">
-							<div class="panel panel-default card-view">
-
-								<div class="panel-wrapper collapse in">
-									<div class="panel-body">
-										<div class="table-wrap">
-											<div class="table-responsive">
-												<table id="datable_1" class="table table-hover table-bordered display  pb-30" >
-													<thead>
-														<tr>
-															<th>Id</th>
-															<th>Name</th>
-															<th>Role</th>
-															<th>Image</th>
-															<th>Seniority</th>
-															<th>Actions</th>
-														</tr>
-													</thead>
-													
-													<tbody>
-														 <?php														
-
-	                                                     $select_qry = "SELECT * FROM trustees where status = 0 order by seniority desc	,trustee_id";
-
-	                                                     $result = mysqli_query($dblink,$select_qry) or die("Cannot Fetch Data From Database" .mysqli_error($dblink));
-	                                                     	$a=1;
-	                                                      while ($row = mysqli_fetch_assoc($result)) { ?>
-	                                                        
-													   <tr>
-														  <td><?php echo $a; ?></td>
-														  <td> <?php echo $row['trustee_name']; ?></td>
-														  <td> <?php echo $row['trustee_work']; ?></td>
-														  <td><img src="../../images/trustees/<?php echo $row['trustee_image']; ?>"> </td>
-														  <td><?php echo $row['seniority']; ?> </td>
-														  <td class="text-nowrap">
-														  	<ul class="oneline">
-															<li>
-														    <form method="post" action="edit_trustees.php">
-														    <input type="hidden" name="id" value="<?php echo $row['trustee_id'];?>">
-															  <button class="butn" type="submit" data-toggle="tooltip" data-original-title="Edit" name="edit"> <i class="fa fa-pencil text-inverse m-r-10"></i> </button>
-	                                                        </form>
-	                                                          </li>
-	                                                          <li>
-	                                                        <form method="post">
-	                                                          <input type="hidden" name="id" value="<?php echo $row['trustee_id'];?>">
-															  <button class="butn" type="submit" data-toggle="tooltip" data-original-title="Delete" name="delete"> <i class="fa fa-trash text-danger"></i> </button>
-															</form>
-														</li>
-													</ul>
-														  </td>
-														</tr>
-														<?php $a++; } ?>
-														
-													</tbody>
-												</table>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>	
-						</div>
-					</div>			
+		
 				
 				</div>
 				
@@ -223,9 +198,8 @@
 			<!-- /Main Content -->
 
  </div><!--wrapper End-->
- <script src="../../vendors/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
 	<script src="dist/js/dataTables-data.js"></script>	
- <script src="../../vendors/bower_components/dropify/dist/js/dropify.min.js"></script>		
+ <script src="vendors/bower_components/dropify/dist/js/dropify.min.js"></script>		
 		<!-- Form Flie Upload Data JavaScript -->
 <script src="dist/js/form-file-upload-data.js"></script>
 <style type="text/css">
