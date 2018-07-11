@@ -15,92 +15,25 @@
                                         <nav id="dropdown" style="display: block;">
                                             <ul>
                                                 <li>
-                                                    <a href="#">Home</a>
-                                                    <ul class="ne-dropdown-menu">
+                                                    <a href="index2/">Home</a>
+                                                </li>
+                                                 <?php list($category) = exc_qry('select * from news_category where status = 0 and parent_id = 0 order by id desc');
+                                                for ($i=0; $i < count($category); $i++) { 
+                                                 ?>
+                                                <li>
+                                                    <a href="category/<?php echo $category[$i]['id'].'/'.$category[$i]['category']; ?>"><b><?php echo $category[$i]['category']; ?></b></a>
+                                                    <?php list($sub_category) = exc_qry('select * from news_category where status = 0 and parent_id = '.$category[$i]['id'].' order by id desc');
+                                                   if(count($sub_category)>0){ ?>
+                                                     <ul class="ne-dropdown-menu">
+                                                        <?php  for ($a=0; $a < count($sub_category); $a++) { ?>
                                                         <li>
-                                                            <a href="index-2.html">Home 1</a>
+                                                            <a href="category/<?php echo $sub_category[$a]['id'].'/'.$sub_category[$a]['category']; ?>"><b><?php echo $sub_category[$a]['category']; ?></b></a>
                                                         </li>
-                                                        <li>
-                                                            <a href="index2.html">Home 2</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="index3.html">Home 3</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="index4.html">Home 4</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="index5.html">Home 5</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="index6.html">Home 6</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="index7.html">Home 7</a>
-                                                        </li>
+                                                    <?php } ?>
                                                     </ul>
+                                                <?php } ?>
                                                 </li>
-                                                <li class="active">
-                                                    <a href="#">Post</a>
-                                                    <ul class="ne-dropdown-menu">
-                                                        <li>
-                                                            <a href="post-style-1.html">Post Style 1</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="post-style-2.html">Post Style 2</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="post-style-3.html">Post Style 3</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="post-style-4.html">Post Style 4</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="single-news-1.html">News Details 1</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="single-news-2.html">News Details 2</a>
-                                                        </li>
-                                                        <li class="active">
-                                                            <a href="single-news-3.html">News Details 3</a>jj
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Pages</a>
-                                                    <ul class="ne-dropdown-menu">
-                                                        <li>
-                                                            <a href="author-post.html">Author Post Page</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="archive.html">Archive Page</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="gallery-style-1.html">Gallery Style 1</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="gallery-style-2.html">Gallery Style 2</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="404.html">404 Error Page</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="contact.html">Contact Page</a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li>
-                                                    <a href="post-style-1.html">Politics</a>
-                                                </li>
-                                                <li>
-                                                    <a href="post-style-2.html">Business</a>
-                                                </li>
-                                                <li>
-                                                    <a href="post-style-3.html">Sports</a>
-                                                </li>
-                                                <li>
-                                                    <a href="post-style-4.html">Fashion</a>
-                                                </li>
+                                            <?php } ?>
                                             </ul>
                                         </nav>
                                     </div>
@@ -116,11 +49,11 @@
                                                     </button>
                                                 </form>
                                             </li>
-                                            <li>
+                                            <!-- <li>
                                                 <button type="button" class="login-btn" data-toggle="modal" data-target="#myModal">
                                                     <i class="fa fa-user" aria-hidden="true"></i>Sign in
                                                 </button>
-                                            </li>
+                                            </li> -->
                                             <li>
                                                 <div id="side-menu-trigger" class="offcanvas-menu-btn">
                                                     <a href="#" class="menu-bar">

@@ -113,7 +113,6 @@ if(!isValidUser())   redirect("login.php"); ?>
 															<th>Actions</th>
 														</tr>
 													</thead>
-													
 													<tbody>
 
 														 <?php														
