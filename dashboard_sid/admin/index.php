@@ -89,12 +89,12 @@ if(!isValidUser())   redirect("login.php"); ?>
 								<div class="">
 									<div class="pl-15 pr-15 mb-15">
 										<div class="pull-left">
-											<i class="fa fa-link inline-block mr-10 font-16"></i>
-											<span class="inline-block txt-dark">Links</span>
+											<i class="fa fa-comment inline-block mr-10 font-16"></i>
+											<span class="inline-block txt-dark">Pending Comments</span>
 										</div>	
 											<span class="inline-block txt-warning pull-right weight-500">
-												<?php list($link)=exc_qry("select * from links where status = 0 ");  
-												echo count($link); 
+												<?php list($pending_comments)=exc_qry("select * from comments where status = 0");  
+												echo count($pending_comments); 
 												?>
 											</span>
 											<div class="clearfix"></div>
@@ -115,12 +115,12 @@ if(!isValidUser())   redirect("login.php"); ?>
 										<hr class="light-grey-hr mt-0 mb-15">
 									<div class="pl-15 pr-15 mb-15">
 										<div class="pull-left">
-											<i class="zmdi zmdi-ticket-star inline-block mr-10 font-16"></i>
-											<span class="inline-block txt-dark">Temple Activities</span>
+											<i class="fa fa-comments inline-block mr-10 font-16"></i>
+											<span class="inline-block txt-dark">Comments</span>
 										</div>	
 										<span class="inline-block txt-primary pull-right weight-500">
-											<?php list($temple_activities)=exc_qry("select * from temple_activities where status = 0 ");  
-												echo count($temple_activities); 
+											<?php list($comments)=exc_qry("select * from comments where status = 1 ");  
+												echo count($comments); 
 												?>
 										</span>
 										<div class="clearfix"></div>

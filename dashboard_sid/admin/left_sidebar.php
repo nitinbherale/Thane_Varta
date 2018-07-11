@@ -30,7 +30,7 @@
 					</ul>
 				</li>
 				<li>
-					<a href="user.php"><div class="pull-left"><i class="fa fa-comments mr-20"></i><span class="right-nav-text">Comments </span></div><div class="pull-right"></div><div class="clearfix"></div></a>
+					<a href="comments.php"><div class="pull-left"><i class="fa fa-comments mr-20"></i><span class="right-nav-text">Comments </span></div><div class="pull-right"></div><div class="clearfix"></div></a>
 				</li>
 				<li>
 					<a href="user.php"><div class="pull-left"><i class="fa fa-audio-description mr-20"></i><span class="right-nav-text">Advertisement </span></div><div class="pull-right"></div><div class="clearfix"></div></a>

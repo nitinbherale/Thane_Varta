@@ -150,7 +150,7 @@ if(!isValidUser())   redirect("login.php"); ?>
 		                                                        </form>
 		                                                         </li>
 		                                                         <li> 	
-		                                                        <form method="post">
+		                                                        <form method="post" >
 		                                                          <input type="hidden" name="id" value="<?php echo $row['id'];?>">
 																  <button class="butn" type="submit" data-toggle="tooltip" data-original-title="Delete" name="delete" onclick="return confirm('Are you sure that you want to delete news?');" > <i class="fa fa-trash text-danger"></i> </button>
 																</form>
@@ -158,7 +158,7 @@ if(!isValidUser())   redirect("login.php"); ?>
 																<li> 	
 		                                                        <form method="post">
 		                                                          <input type="hidden" name="id" value="<?php echo $row['id'];?>">
-																  <button class="butn" type="submit" data-toggle="tooltip" data-original-title="Comments" name="delete" onclick="return confirm('Are you sure that you want to delete news?');" > <i class="fa fa-comments text-success"></i> </button>
+																  <button class="butn" type="submit" data-toggle="tooltip" data-original-title="Comments" name="comments"  > <i class="fa fa-comments text-success"></i> </button>
 																</form>
 																</li>
 															</ul>

@@ -6,6 +6,10 @@
 
 <?php include("right_sidebar_backdrop.php") ?>
 <?php
+$news_id = $_POST['id'];
+if(!$news_id>0){
+	header('location:news.php');
+}
   if (isset($_POST['add'])) {
   	$go = 1;
   	$heading =  mysqli_real_escape_string($dblink,$_POST["title"]); 
@@ -64,7 +68,7 @@
 					}
 		  }
 }
-$MyQuery = "select * from news_category where status = 0 and parent_id = 0 order by id";     
+$MyQuery = "select * from news where status = 0 and id = $news_id limit 1";     
 list($list_Cat)=exc_qry($MyQuery);
 ?>
 <script type="text/javascript">
@@ -122,7 +126,7 @@ list($list_Cat)=exc_qry($MyQuery);
 			<!-- Title -->
 			<div class="row heading-bg">
 				<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-					<h5 class="txt-dark">Add News</h5>
+					<h5 class="txt-dark">Edit News</h5>
 				</div>
 
 				<!-- Breadcrumb -->
@@ -130,7 +134,7 @@ list($list_Cat)=exc_qry($MyQuery);
 					<ol class="breadcrumb">
 						<li><a href="index.php">Dashboard</a></li>
 						<li><a href="news.php">News</a></li>
-						<li class="active"><span>Add News</span></li>
+						<li class="active"><span>Edit News</span></li>
 					</ol>
 				</div>
 				<!-- /Breadcrumb -->
@@ -144,7 +148,7 @@ list($list_Cat)=exc_qry($MyQuery);
 					<div class="panel panel-default card-view">
 						<div class="panel-heading">
 							<div class="pull-left">
-								<h6 class="panel-title txt-dark">Add News</h6>
+								<h6 class="panel-title txt-dark">Edit News</h6>
 							</div>
 							<div class="clearfix"></div>
 						</div>
@@ -268,10 +272,12 @@ list($list_Cat)=exc_qry($MyQuery);
 	<script src="dist/js/dataTables-data.js"></script>	
  <script src="vendors/bower_components/dropify/dist/js/dropify.min.js"></script>		
 		<!-- Form Flie Upload Data JavaScript -->
-<script type="text/javascript">
-	CKEDITOR.replace('new_content');
-</script>
 <script src="dist/js/form-file-upload-data.js"></script>
+<script type="text/javascript">
+
+	CKEDITOR.replace('new_content');
+
+</script>
 <style type="text/css">
 	input[type='number'] {
     -moz-appearance:textfield;

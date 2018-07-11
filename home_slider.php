@@ -1,4 +1,4 @@
-<?php $news_qry = "select * from news where status = 0 order by top desc,post_date desc,id desc";  
+<?php $news_qry = "select * from news where status = 0 order by post_date desc,id desc";  
  list($news_result) = exc_qry($news_qry);
  ?>
     <!-- Slider Area Start Here -->
@@ -10,7 +10,7 @@
                                 <div class="bend niceties preview-1">
                                     <div id="ensign-nivoslider-3" class="slides">
                                         <?php   for($i=0;$i<3;$i++) {?>
-                                        <img src="img/news/<?php echo $news_result[$i]['img']; ?>" alt="slider" title="#slider-direction-<?php echo $news_result[$i]['id']; ?>" />
+                                        <img src="img/news/<?php echo $news_result[$i]['img']; ?>" alt="slider" title="#slider-direction-<?php echo $news_result[$i]['id']; ?>"  />
                                     <?php } ?>
                                        <!--  <img src="img/banner/slide2.jpg" alt="slider" title="#slider-direction-2" />
                                         <img src="img/banner/slide3.jpg" alt="slider" title="#slider-direction-3" /> -->
@@ -27,7 +27,7 @@
                                                         <ul>
                                                             <li>
                                                                 <span>by</span>
-                                                                <a href="single-news-1.html"><?php echo $news_result[$i]['author']; ?></a>
+                                                                <?php echo $news_result[$i]['author']; ?>
                                                             </li>
                                                             <li>
                                                                 <span>
@@ -36,7 +36,7 @@
                                                             </li>
                                                         </ul>
                                                     </div>
-                                                    <div class="slider-title"><?php echo $news_result[$i]['heading']; ?></div>
+                                                    <div class="slider-title"><a href="single_page_news/<?php echo  $news_result[$i]['id'].'/'.$news_result[$i]['heading']  ?>/" class="text-white"><?php echo $news_result[$i]['heading']; ?></a></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -72,9 +72,10 @@
                         <div class="col-xl-4 col-lg-12">
                             <div class="item-box-light-md-less30 ie-full-width">
                                 <div class="row">
+                                     <?php   for($i=3;$i<7;$i++) {?>
                                     <div class="media mb-30 col-xl-12 col-lg-6 col-md-6 col-sm-12">
                                         <a class="img-opacity-hover" href="single-news-1.html">
-                                            <img src="img/news/news309.jpg" alt="news" class="img-fluid">
+                                            <img src="img/news/<?php echo $news_result[$i]['img']; ?>" width="124px" height="88px" alt="news" class="img-fluid">
                                         </a>
                                         <div class="media-body media-padding5">
                                             <div class="post-date-dark">
@@ -82,33 +83,17 @@
                                                     <li>
                                                         <span>
                                                             <i class="fa fa-calendar" aria-hidden="true"></i>
-                                                        </span>March 22, 2017</li>
+                                                        </span><?php echo date("F d, Y", strtotime($news_result[$i]['post_date'])); ?></li>
                                                 </ul>
                                             </div>
                                             <h3 class="title-medium-dark size-md mb-none">
-                                                <a href="single-news-2.html">Quick Tips: Cling Wrap Hack One Pot Chef</a>
+                                                <a href="single_page_news/<?php echo  $news_result[$i]['id'].'/'.$news_result[$i]['heading']  ?>/"><?php $description = substr($news_result[$i]['heading'],0,100);
+                                                           if(substr($description, 0, strrpos($description, ' '))!='') $description = substr($description, 0, strrpos($description, ' ')); echo $description." ..."; ?></a>
                                             </h3>
                                         </div>
                                     </div>
-                                    <div class="media mb-30 col-xl-12 col-lg-6 col-md-6 col-sm-12">
-                                        <a class="img-opacity-hover" href="single-news-1.html">
-                                            <img src="img/news/news310.jpg" alt="news" class="img-fluid">
-                                        </a>
-                                        <div class="media-body media-padding5">
-                                            <div class="post-date-dark">
-                                                <ul>
-                                                    <li>
-                                                        <span>
-                                                            <i class="fa fa-calendar" aria-hidden="true"></i>
-                                                        </span>March 22, 2017</li>
-                                                </ul>
-                                            </div>
-                                            <h3 class="title-medium-dark size-md mb-none">
-                                                <a href="single-news-2.html">Cling Wrap Hack One Pot Chef</a>
-                                            </h3>
-                                        </div>
-                                    </div>
-                                    <div class="media mb-30 col-xl-12 col-lg-6 col-md-6 col-sm-12">
+                                        <?php } ?>
+                                 <!--    <div class="media mb-30 col-xl-12 col-lg-6 col-md-6 col-sm-12">
                                         <a class="img-opacity-hover" href="single-news-1.html">
                                             <img src="img/news/news311.jpg" alt="news" class="img-fluid">
                                         </a>
@@ -125,25 +110,7 @@
                                                 <a href="single-news-2.html">Detoxifying Summer Drink Recipes</a>
                                             </h3>
                                         </div>
-                                    </div>
-                                    <div class="media mb-30 col-xl-12 col-lg-6 col-md-6 col-sm-12">
-                                        <a class="img-opacity-hover" href="single-news-1.html">
-                                            <img src="img/news/news312.jpg" alt="news" class="img-fluid">
-                                        </a>
-                                        <div class="media-body media-padding5">
-                                            <div class="post-date-dark">
-                                                <ul>
-                                                    <li>
-                                                        <span>
-                                                            <i class="fa fa-calendar" aria-hidden="true"></i>
-                                                        </span>March 22, 2017</li>
-                                                </ul>
-                                            </div>
-                                            <h3 class="title-medium-dark size-md mb-none">
-                                                <a href="single-news-2.html">Taylor Swift’s Stylish Separtes many.</a>
-                                            </h3>
-                                        </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
@@ -151,3 +118,11 @@
                 </div>
             </section>
             <!-- Slider Area End Here -->
+<style type="text/css">
+    .text-white{
+        color: white;
+    }
+    .nivo-main-image{
+        height: 510px !important;
+    }
+</style>

@@ -186,35 +186,7 @@ function Set_Top($del_arr,$tbl_name)
         }        
     return $msg;
 }
-function Comment($del_arr,$tbl_name,$select)
-{
-    global $dblink;
-    //echo count($del_arr);
-    if (count($del_arr)==0)
-    {
-        $msg = "Please select data";
-    }
-    else{
-    for($i=0;$i<count($del_arr);$i++)
-        {
-            //$query2="delete $tbl_name where  (image_name,Celeb_id) values('$galimagename[$i]',$gallery)";
-             $query2="update $tbl_name set status = $select where id = $del_arr[$i]";
-            
-            $result2=mysqli_query($dblink,$query2);
-            if($result2)
-            {
-             if($select == 1){
-                $msg = "Records Approved";
-                }
-                else
-                {
-                $msg = "Records Disapproved";
-                }
-            }
-        }
-  }
-    return $msg;
-}
+
 function InsSubCategoryDtls($catname,$id)
 {
     global $dblink;
@@ -270,5 +242,14 @@ function online_users()
     $user_online_qry = mysqli_query($dblink,"select * from user_online where time > '$time_out'");
     return $count_user = mysqli_num_rows($user_online_qry);
 }
-
+function GetNews($news_id)
+ {
+        global $dblink;
+$qry="select * from news where id= '".$news_id."'";
+// echo $qry;
+$GtId=mysqli_query($dblink,$qry);
+$GtId=mysqli_fetch_array($GtId);
+$heading=$GtId["heading"];
+return $heading;
+}
 ?>

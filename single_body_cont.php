@@ -4,20 +4,20 @@
                         <div class="col-lg-8 col-md-12 mb-30">
                             <div class="news-details-layout1">
                                 <div class="position-relative mb-30">
-                                    <img src="img/news/news177.jpg" alt="news-details" class="img-fluid">
+                                    <img src="img/news/<?php echo $news_single[0]['img']; ?>" alt="news-details" class="img-fluid img img-responsive">
                                     <div class="topic-box-top-sm">
-                                        <div class="topic-box-sm color-cinnabar mb-20">Business</div>
+                                        <div class="topic-box-sm color-cinnabar mb-20"><?php echo get_cat_name($news_single[0]['category']) 
+                                                    ?></div>
                                     </div>
                                 </div>
-                                <h2 class="title-semibold-dark size-c30">10 Hdrenaline fuelled activities that will chase the post summer blues away</h2>
+                                <h2 class="title-semibold-dark size-c30"><?php echo $news_single[0]['heading']; ?></h2>
                                 <ul class="post-info-dark mb-30">
                                     <li>
-                                        <a href="#">
-                                            <span>By</span> Mark Willy</a>
+                                            <span>By</span> <?php echo $news_single[0]['author']; ?>
                                     </li>
                                     <li>
                                         <a href="#">
-                                            <i class="fa fa-calendar" aria-hidden="true"></i>Jan 10, 2017</a>
+                                            <i class="fa fa-calendar" aria-hidden="true"></i><?php echo date("F d, Y", strtotime($news_single[0]['post_date'])); ?></a>
                                     </li>
                                     <li>
                                         <a href="#">
@@ -28,33 +28,20 @@
                                             <i class="fa fa-comments" aria-hidden="true"></i>20</a>
                                     </li>
                                 </ul>
-                                <p>Nmply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
-                                    andard dummy text ever since the 1500s, when an unknown printer took a galley of type
-                                    andser crambled it to make a type specimen book. It has survived not only five centuries,
-                                    but also the leap into electronic typesetting, remaining.</p>
-                                <p>It is a long established fact that a reader will be distracted by the readable content of
-                                    a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less
-                                    normal distrib ution of letters, as opposed to using 'Content here, content here', making
-                                    it look like readabl aree English. Many desktop publishing packages and web page editors
-                                    now use Lorem Ipsum s their default model text, and a search.</p>
-                                <img src="img/news/news178.jpg" alt="news-details" class="img-fluid pull-left mr-40 mb-15">
-                                <p>Nmply dummy text of the printing and typesetting ustry. Lorem Ipsum has been the industry's
-                                    stydedy andard dummy text ever since the, when new wwan printer took a galley of type
-                                    andsercrambled it toit make a type specimen book. It has survived anneyt only five centuries,
-                                    but also theleap into electro nic typesetting, remaining.</p>
-                                <p>It is a long established fact that a reader will be dist racted by the readable content of
-                                    a page when looking at its layout.</p>
-                                <blockquote cite="#" class="bg-accent mt-50 mb-50">
-                                    Srem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
-                                    text ever since the 1500s. Lorem Ipsum is simply .
-                                </blockquote>
-                                <p>Nmply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
-                                    st andard dummy text ever since the 1500s, when an unknown printer took a galley of type
-                                    andse aerr crambled it to make a type specimen book. It has survived not only five centuries,
-                                    but also they area leap into electronic typesetting, remaining.</p>
+                                
+                                <p>
+                                  <?php echo $news_single[0]['content']; ?>  
+                                </p>
+                               
                                 <ul class="blog-tags item-inline">
                                     <li>Tags</li>
-                                    <li>
+                                    <?php $str=$news_single[0]['tags'];; 
+                                    $list = array_map('trim',explode(",",$str));
+                                    $i = 0;
+                                    while($i<count($list)){
+                                    echo '<li> <a href="tags.php?t='.$list[$i].'">'.$list[$i].'</a></li>';
+                                    $i++;}?>
+                                    <!-- li>
                                         <a href="#">#Business</a>
                                     </li>
                                     <li>
@@ -62,7 +49,7 @@
                                     </li>
                                     <li>
                                         <a href="#">#Lifestyle</a>
-                                    </li>
+                                    </li> -->
                                 </ul>
                                 <div class="post-share-area mb-40 item-shadow-1">
                                     <p>You can share this post!</p>
@@ -155,7 +142,7 @@
                                     <ul>
                                         <li>
                                             <div class="media media-none-xs">
-                                                <img src="img/blog1.jpg" class="img-fluid rounded-circle" alt="comments">
+                                                <!-- <img src="img/blog1.jpg" class="img-fluid rounded-circle" alt="comments"> -->
                                                 <div class="media-body comments-content media-margin30">
                                                     <h3 class="title-semibold-dark">
                                                         <a href="#">Nitiya ,
@@ -169,7 +156,7 @@
                                         </li>
                                         <li>
                                             <div class="media media-none-xs">
-                                                <img src="img/blog2.jpg" class="img-fluid rounded-circle" alt="comments">
+                                                
                                                 <div class="media-body comments-content media-margin30">
                                                     <h3 class="title-semibold-dark">
                                                         <a href="#">Fahim ,

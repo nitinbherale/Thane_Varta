@@ -1,12 +1,23 @@
-
+<?php include 'connect.php';
+$uri = $_SERVER['REQUEST_URI'];
+$url_array = explode('/', $uri);
+$id = $url_array[3]; 
+//echo $id;
+ $news_qry = "select * from news where status = 0 and id = $id";  
+ list($news_single) = exc_qry($news_qry);
+ //echo count($news_single);
+?>
 <!doctype html>
 <html class="no-js" lang="">
 
 <head>
+    <base href="http://localhost/thane_v/">
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <title>Thane Varta</title>
-        <meta name="description" content="">
+        <meta name="description" content="<?php echo $news_single[0]['meta_description']; ?>">
+        <meta name="keywords" content="<?php echo $news_single[0]['meta_tag']; ?>">
+        <meta name="author" content="<?php echo $news_single[0]['author']; ?>">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Favicon -->
         <link rel="shortcut icon" type="image/x-icon" href="">
