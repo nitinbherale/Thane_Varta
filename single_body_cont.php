@@ -174,27 +174,27 @@
                                     <h2 class="title-semibold-dark size-xl mb-40">Leave Comments</h2>
                                     <form id="leave-comments">
                                         <div class="row">
-                                            <div class="col-md-4 col-sm-12">
+                                            <div class="col-md-6 col-sm-12">
                                                 <div class="form-group">
-                                                    <input placeholder="Name*" class="form-control" type="text">
+                                                    <input placeholder="Name*" class="form-control" name="name" type="text" required>
                                                     <div class="help-block with-errors"></div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4 col-sm-12">
+                                            <div class="col-md-6 col-sm-12">
                                                 <div class="form-group">
-                                                    <input placeholder="Email*" class="form-control" type="email">
+                                                    <input placeholder="Email*" class="form-control" type="email" name="email" required>
                                                     <div class="help-block with-errors"></div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4 col-sm-12">
+                                           <!--  <div class="col-md-4 col-sm-12">
                                                 <div class="form-group">
                                                     <input placeholder="Web Address" class="form-control" type="text">
                                                     <div class="help-block with-errors"></div>
                                                 </div>
-                                            </div>
+                                            </div> -->
                                             <div class="col-12">
                                                 <div class="form-group">
-                                                    <textarea placeholder="Message*" class="textarea form-control" id="form-message" rows="8" cols="20"></textarea>
+                                                    <textarea placeholder="Message*" class="textarea form-control" id="form-message" rows="8" cols="20" name="comment" ></textarea>
                                                     <div class="help-block with-errors"></div>
                                                 </div>
                                             </div>

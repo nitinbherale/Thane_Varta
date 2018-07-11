@@ -1,7 +1,9 @@
+<?php include 'connect.php'; ?>
 <!doctype html>
 <html class="no-js" lang="">
 
 <head>
+        <base href="http://localhost/thane_v/">
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <title>Thane Varta</title>
@@ -60,7 +62,7 @@
              <?php include("footer.php") ?>
             <!-- Footer Area End Here -->
             <!-- Modal Start-->
-            <div class="modal fade" id="myModal" role="dialog">
+            <!-- <div class="modal fade" id="myModal" role="dialog">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -89,7 +91,7 @@
                     </div>
                 </div>
             </div>
-            <!-- Modal End-->
+            <!-- Modal End--> -->
             <!-- Offcanvas Menu Start -->
             <div id="offcanvas-body-wrapper" class="offcanvas-body-wrapper">
                 <div id="offcanvas-nav-close" class="offcanvas-nav-close offcanvas-menu-btn">
