@@ -125,4 +125,6 @@
     /*.nivo-main-image{
         height: 510px !important;
     }*/
+    .slides{position: relative;width: 100%;height: 469px;display: block;overflow: hidden;background-repeat: no-repeat;}
+    .slides img{position: absolute;height: 469px;top: 0;left: 0;width: 100%; margin: auto;}
 </style>
