@@ -73,27 +73,26 @@
                                     <div class="ne-main-menu">
                                         <nav id="dropdown">
                                             <ul>
-                                                <li class="active">
-                                                    <a href="#">Home</a>
+                                                <li >
+                                                    <a href="index/"><b>Home</b></a>
                                                 </li>
+                                                <?php list($category) = exc_qry('select * from news_category where status = 0 and parent_id = 0 order by id desc');
+                                                for ($i=0; $i < count($category); $i++) { 
+                                                 ?>
                                                 <li>
-                                                    <a href="#">Post</a>
+                                                    <a href="category/<?php echo $category[$i]['id'].'/'.$category[$i]['category']; ?>"><b><?php echo $category[$i]['category']; ?></b></a>
+                                                       <?php list($sub_category) = exc_qry('select * from news_category where status = 0 and parent_id = '.$category[$i]['id'].' order by id desc');
+                                                   if(count($sub_category)>0){ ?>
+                                                     <ul class="ne-dropdown-menu">
+                                                        <?php  for ($a=0; $a < count($sub_category); $a++) { ?>
+                                                        <li>
+                                                            <a href="category/<?php echo $sub_category[$a]['id'].'/'.$sub_category[$a]['category']; ?>"><b><?php echo $sub_category[$a]['category']; ?></b></a>
+                                                        </li>
+                                                    <?php } ?>
+                                                    </ul>
+                                                <?php } ?>
                                                 </li>
-                                                <li>
-                                                    <a href="#">Pages</a> 
-                                                </li>
-                                                <li>
-                                                    <a href="#">Politics</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Business</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Sports</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Fashion</a>
-                                                </li>
+                                            <?php } ?>
                                             </ul>
                                         </nav>
                                     </div>
@@ -109,11 +108,11 @@
                                                     </button>
                                                 </form>
                                             </li>
-                                            <li class="d-none d-sm-block d-md-block d-lg-none">
+                                            <!-- <li class="d-none d-sm-block d-md-block d-lg-none">
                                                 <button type="button" class="login-btn" data-toggle="modal" data-target="#myModal">
                                                     <i class="fa fa-user" aria-hidden="true"></i>Sign in
                                                 </button>
-                                            </li>
+                                            </li> -->
                                             <li>
                                                 <div id="side-menu-trigger" class="offcanvas-menu-btn offcanvas-btn-repoint">
                                                     <a href="#" class="menu-bar">
