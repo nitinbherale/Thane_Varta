@@ -1,25 +1,22 @@
 <html>
 <body>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-	<form>
-		pass:       <input type="password" name="pass" required/>
-pass again:  <input type="password" name="pass2" required/>
-		<button type="submit">Demo</button>
-	</form>
-</body>
-<script type="text/javascript">
-$(document).ready(function() {
-    $('input[name=pass2]').keyup(function() {
-        if($('input[name=pass]').val() == $('input[name=pass2]').val()) {
-            $('#pass_hint').empty();
-            $('#pass_hint').html('match');
-            $(this).prop('valid', true);
-        } else {
-            $('#pass_hint').empty();
-            $('#pass_hint').html('mismatch');
-            $('#pass2').prop('invalid', true);
+	<?php  include 'connect.php';
+    $news_tag=array();
+        list($tags) = exc_qry('select tags from news where status = 0');
+        //print_r($tags);
+        for ($t=0; $t < count($tags); $t++) { 
+            $i_tag = $tags[$t]['tags'];
+            $list = array_map('trim',explode(",",$i_tag));
+            for($i=0;$i<count($list);$i++){
+            array_push($news_tag,$list[$i]);
+            }
         }
-    });
-});
+        print_r($news_tag);
+        $a=array("a"=>"red","b"=>"green","c"=>"red");
+        print_r(array_unique($a));
+       echo count(array_unique($a));    
+
+?>
+</body>
 </script>
 </html>

@@ -74,25 +74,28 @@
                                         <nav id="dropdown">
                                             <ul>
                                                 <li >
-                                                    <a href="index/"><b>Home</b></a>
+                                                    <a href="index/"><b>मुखपृष्ठ</b></a>
                                                 </li>
-                                                <?php list($category) = exc_qry('select * from news_category where status = 0 and parent_id = 0 order by id desc');
+                                                <?php list($category) = exc_qry('select * from news_category where status = 0 and parent_id = 0 order by id ');
                                                 for ($i=0; $i < count($category); $i++) { 
                                                  ?>
                                                 <li>
-                                                    <a href="category/<?php echo $category[$i]['id'].'/'.$category[$i]['category']; ?>"><b><?php echo $category[$i]['category']; ?></b></a>
-                                                       <?php list($sub_category) = exc_qry('select * from news_category where status = 0 and parent_id = '.$category[$i]['id'].' order by id desc');
+                                                    <a href="category/<?php echo $category[$i]['id'].'/'.$category[$i]['category']; ?>/"><b><?php echo $category[$i]['category']; ?></b></a>
+                                                       <?php list($sub_category) = exc_qry('select * from news_category where status = 0 and parent_id = '.$category[$i]['id'].' order by id ');
                                                    if(count($sub_category)>0){ ?>
                                                      <ul class="ne-dropdown-menu">
                                                         <?php  for ($a=0; $a < count($sub_category); $a++) { ?>
                                                         <li>
-                                                            <a href="category/<?php echo $sub_category[$a]['id'].'/'.$sub_category[$a]['category']; ?>"><b><?php echo $sub_category[$a]['category']; ?></b></a>
+                                                            <a href="category/<?php echo $sub_category[$a]['id'].'/'.$sub_category[$a]['category']; ?>/"><b><?php echo $sub_category[$a]['category']; ?></b></a>
                                                         </li>
                                                     <?php } ?>
                                                     </ul>
                                                 <?php } ?>
                                                 </li>
-                                            <?php } ?>
+                                                <?php } ?>
+                                                <li >
+                                                    <a href="contact/"><b>संपर्क</b></a>
+                                                </li>
                                             </ul>
                                         </nav>
                                     </div>

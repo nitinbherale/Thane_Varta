@@ -1,4 +1,8 @@
-<?php include 'connect.php'; ?>
+<?php include 'connect.php'; 
+$uri = $_SERVER['REQUEST_URI'];
+$url_array = explode('/', $uri);
+$cat_id = $url_array[3]; 
+?>
 <!doctype html>
 <html class="no-js" lang="">
 

@@ -48,7 +48,7 @@
                         <div class="topic-box-sm color-cod-gray mb-20"><?php echo get_cat_name($news_result[$i]['category']); ?></div>
                     </div>
                     <a href="#" class="mb-10 display-block img-opacity-hover">
-                        <img src="img/news/<?php echo $news_result[$i]['img']; ?>" alt="ad" class="img-fluid m-auto width-100">
+                        <img src="img/news/<?php echo $news_result[$i]['img']; ?>" height="117px" alt="ad" class="img-fluid m-auto width-100">
                     </a>
                     <h3 class="title-medium-dark size-md mb-none">
                         <a href="single_page_news/<?php echo  $news_result[$i]['id'].'/'.$news_result[$i]['heading']  ?>/">
@@ -58,7 +58,7 @@
                 </div>
             </div>
              <?php } ?>
-            <div class="col-lg-6 col-md-4 col-sm-6 col-6">
+           <!--  <div class="col-lg-6 col-md-4 col-sm-6 col-6">
                 <div class="mt-25 position-relative">
                     <div class="topic-box-top-xs">
                         <div class="topic-box-sm color-cod-gray mb-20">Application</div>
@@ -70,7 +70,7 @@
                         <a href="#">Rosie Huntington Whitl Habits Career Art.Rosie TBeauty Habits.</a>
                     </h3>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
         <div class="sidebar-box">
@@ -95,34 +95,24 @@
             <div class="topic-border color-cod-gray mb-25">
                 <div class="topic-box-lg color-cod-gray">Tags</div>
             </div>
+            <?php list($tags) = exc_qry('select tags from news where status = 0'); ?>
             <ul class="sidebar-tags">
-                <li>
-                    <a href="#">Apple</a>
+               <?php  $news_tag=array(); 
+               for ($t=0; $t < count($tags); $t++) { 
+                    $i_tag = $tags[$t]['tags'];
+                    $list = array_map('trim',explode(",",$i_tag));
+                    for($i=0;$i<count($list);$i++){
+                    array_push($news_tag,$list[$i]);
+                    }
+                } ?>
+
+                <?php for ($r=0; $r < 12 ; $r++) { ?>
+                    <li>
+                    <a href="tags/<?php echo $news_tag[$r]; ?>/"><?php echo $news_tag[$r]; ?></a>
                 </li>
-                <li>
-                    <a href="#">Business</a>
-                </li>
-                <li>
-                    <a href="#">Architecture</a>
-                </li>
-                <li>
-                    <a href="#">Gadgets</a>
-                </li>
-                <li>
-                    <a href="#">Software</a>
-                </li>
-                <li>
-                    <a href="#">Microsoft</a>
-                </li>
-                <li>
-                    <a href="#">Robotic</a>
-                </li>
-                <li>
-                    <a href="#">Technology</a>
-                </li>
-                <li>
-                    <a href="#">Others</a>
-                </li>
+                
+                <?php } ?>
+                
             </ul>
         </div>
                            <!--  <div class="sidebar-box">

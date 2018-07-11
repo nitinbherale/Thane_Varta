@@ -7,10 +7,10 @@
 <?php include("right_sidebar_backdrop.php") ?>
 <?php
 $news_id = $_POST['id'];
-if(!$news_id>0){
-	header('location:news.php');
-}
-  if (isset($_POST['add'])) {
+
+  if (isset($_POST['update'])) {
+  	//echo "<script>window.alert('edit called')</script>";
+  	$news_id = $_POST['news_id'];
   	$go = 1;
   	$heading =  mysqli_real_escape_string($dblink,$_POST["title"]); 
     $content =  mysqli_real_escape_string($dblink,$_POST["description"]); 
@@ -24,11 +24,14 @@ if(!$news_id>0){
     $photo = $_FILES['img'];
     $tmp = strtolower(time()."_".$_FILES['img']['name']);
   // echo '<script> my_function("'.$_FILES['img']['name'].'"); </script>';
+     if(strlen($photo['name'])>0)
+				{
     	if(!move_uploaded_file($photo["tmp_name"],$imgpath.$tmp))//storing image in file
             {
                 echo '<script> my_function("Image Upload Failed"); </script>';
         		$go = 0;
             }
+        }
 		if($go)
 		{
 			$insquery .= "heading = '" . $heading . "'";            
@@ -56,11 +59,11 @@ if(!$news_id>0){
 					$insquery .= ",img = '" . $tmp . "'";  
 					
 				}
-					 $insquery = "insert into news set post_date = '".$date."',".$insquery;
+					 $insquery = "update news set ".$insquery."  where id = $news_id";
 		 			$result = mysqli_query($dblink,$insquery);
 					if($result)
 					{
-					echo '<script> success_message("Success","success","News Added Successfully","add_news.php");  </script>';
+					echo '<script> success_message("Success","success","News Updated Successfully","news.php");  </script>';
 					}
 					else
 					{
@@ -68,36 +71,36 @@ if(!$news_id>0){
 					}
 		  }
 }
-$MyQuery = "select * from news where status = 0 and id = $news_id limit 1";     
+
+if(!$news_id>0){
+	//header('location:news.php');
+}
+else{
+	// echo "<script>window.alert(".$news_id.")</script>";
+	list($ed_news)=exc_qry("select * from news where id = ".$news_id);
+	$heading = $ed_news[0]['heading'];
+	$content = $ed_news[0]["content"]; 
+    $author =  $ed_news[0]["author"]; 
+    $catid = $ed_news[0]["category"]; 
+    $tags =  $ed_news[0]["tags"]; 
+    $meta_tag =  $ed_news[0]["meta_tag"]; ; 
+    $sub_cat = $ed_news[0]["sub_category"]; ;  
+    $meta_description = $ed_news[0]["meta_description"];     
+    $img = $ed_news[0]["img"]; 
+     $MyQuery = "select * from news_category where status = 0 and parent_id = $catid order by id ";     
+list($list_subCat)=exc_qry($MyQuery);  
+}
+
+$MyQuery = "select * from news_category where status = 0 and parent_id = 0 order by id";     
 list($list_Cat)=exc_qry($MyQuery);
 ?>
 <script type="text/javascript">
-	$( document ).ready(function() {
-	var a =	document.getElementById('category').value;
-     var xmlhttp;
-      //alert(str);
-      if (window.XMLHttpRequest)
-      {// code for IE7+, Firefox, Chrome, Opera, Safari
-        xmlhttp=new XMLHttpRequest();
-      }
-      else
-      {// code for IE6, IE5
-        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-      }	
 
-      xmlhttp.onreadystatechange = function() {
-        if(xmlhttp.readyState == 4 && xmlhttp.status == 200)
-        {
-          document.getElementById("data").innerHTML = xmlhttp.responseText;
-        }
-      }
-
-      xmlhttp.open("GET","demo.php?opt="+a, true);
-      xmlhttp.send();
-});
-   function update(str)
-   {
-      var xmlhttp;
+   
+ // window.alert("working properly");
+  function mychange(str){
+  	//window.alert(str);
+  	var xmlhttp;
      // alert(str);
       if (window.XMLHttpRequest)
       {// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -158,25 +161,26 @@ list($list_Cat)=exc_qry($MyQuery);
 									<div class="col-sm-12 col-xs-12">
 										<div class="form-wrap">
 											<form method="post"  enctype="multipart/form-data">
+												<input type="hidden" name="news_id" value="<?php echo $news_id; ?>">
 												<div class="form-group">
 													<label class="control-label mb-10" for="exampleInputuname_1">Title *</label>
 													<div class="input-group">
 														<div class="input-group-addon"><i class="icon-user"></i></div>
-														<input type="text" class="form-control" id="exampleInputuname_1" placeholder="Heading of news" name="title" required>
+														<input type="text" class="form-control" id="exampleInputuname_1" placeholder="Heading of news" name="title" value="<?php  echo $heading; ?>" required>
 													</div>
 												</div>
 												<div class="form-group">
 													<label class="control-label mb-10" for="exampleInputuname_1">Description *</label>
 													<div class="input-group">
 														<div class="input-group-addon"><i class="icon-user"></i></div>
-														<textarea type="text" class="form-control" id="new_content" rows="5" placeholder="Description of news" name="description" required></textarea> 
+														<textarea type="text" class="form-control" id="new_content" rows="5" placeholder="Description of news" name="description" required><?php  echo $content; ?></textarea> 
 													</div>
 												</div>
 												<div class="form-group">
-													<label class="control-label mb-10" for="exampleInputEmail_1">News Image *</label>
+													<label class="control-label mb-10" for="exampleInputEmail_1">News Image </label>
 													<div class="input-group">
 														<div class="input-group-addon"><i class="icon-envelope-open"></i></div>
-														<input type="file" name="img" accept="image/jpg,image/jpeg"  id="input-file-max-fs" class="dropify"  data-max-file-size="2M"  required  />
+														<input type="file" name="img" accept="image/jpg,image/jpeg"  id="input-file-max-fs" class="dropify"  data-max-file-size="2M" data-default-file="../../img/news/<?php echo $img; ?>"  />
 													</div>
 												</div>
 												
@@ -184,28 +188,28 @@ list($list_Cat)=exc_qry($MyQuery);
 													<label class="control-label mb-10" for="exampleInputuname_1">Author *</label>
 													<div class="input-group">
 														<div class="input-group-addon"><i class="icon-user"></i></div>
-														<input type="text" class="form-control" id="exampleInputuname_1" placeholder="Author of news" name="author" required>
+														<input type="text" class="form-control" id="exampleInputuname_1" placeholder="Author of news" name="author" value="<?php  echo $author; ?>" required>
 													</div>
 												</div>
 												<div class="form-group">
 													<label class="control-label mb-10" for="exampleInputuname_1">News Tags * (Please Separate tags using ',')</label>
 													<div class="input-group">
 														<div class="input-group-addon"><i class="icon-user"></i></div>
-														<input type="text" class="form-control" id="exampleInputuname_1" placeholder="News Tags" name="news_tag" required>
+														<input type="text" class="form-control" id="exampleInputuname_1" placeholder="News Tags" name="news_tag" value="<?php  echo $tags; ?>" required>
 													</div>
 												</div>
 												<div class="form-group">
 													<label class="control-label mb-10" for="exampleInputuname_1">Meta Keywords *</label>
 													<div class="input-group">
 														<div class="input-group-addon"><i class="icon-user"></i></div>
-														<input type="text" class="form-control" id="exampleInputuname_1" placeholder="Meta Keywords" name="meta_keywords" required>
+														<input type="text" class="form-control" id="exampleInputuname_1" placeholder="Meta Keywords" name="meta_keywords" value="<?php  echo $meta_tag; ?>" required>
 													</div>
 												</div>
 												<div class="form-group">
 													<label class="control-label mb-10" for="exampleInputuname_1">Meta Description *</label>
 													<div class="input-group">
 														<div class="input-group-addon"><i class="icon-user"></i></div>
-														<textarea type="text" class="form-control" id="exampleInputuname_1" rows="5" placeholder="Meta Description" name="meta_description" required></textarea> 
+														<textarea type="text" class="form-control" id="exampleInputuname_1" rows="5" placeholder="Meta Description" name="meta_description"  required><?php  echo $meta_description; ?></textarea> 
 													</div>
 												</div>
 
@@ -213,7 +217,7 @@ list($list_Cat)=exc_qry($MyQuery);
 													<label class="control-label mb-10" for="exampleInputpwd_1"> Category *</label>
 													<div class="input-group">
 														<div class="input-group-addon"><i class="icon-lock"></i></div>
-														<select class="form-control" required onchange="update(this.value)"  name="cat" id="category">
+														<select class="form-control" required onchange="mychange(this.value)"  name="cat" id="category">
 															<?php 
 													      for($vid=0;$vid < count($list_Cat);$vid++){?><option value="<?php echo $list_Cat[$vid]["id"];?>" 
 													       <?php if($list_Cat[$vid]["id"]==$catid)
@@ -236,7 +240,7 @@ list($list_Cat)=exc_qry($MyQuery);
 														</select>
 													</div>
 												</div>
-												<button type="submit" class="btn btn-success mr-10" name="add">Add</button>
+												<button type="submit" class="btn btn-success mr-10" name="update">Update</button>
 												<button type="button" class="btn btn-default mr-10" onclick="window.location='news.php'">Back</button>
 											</form>
 										</div>
