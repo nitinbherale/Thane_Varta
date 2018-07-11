@@ -1,20 +1,3 @@
-/*
-SQLyog Enterprise - MySQL GUI v7.02 
-MySQL - 5.7.19 : Database - thane_varta
-*********************************************************************
-*/
-
-/*!40101 SET NAMES utf8 */;
-
-/*!40101 SET SQL_MODE=''*/;
-
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`thane_varta` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci */;
-
-USE `thane_varta`;
-
 /*Table structure for table `about_content` */
 
 DROP TABLE IF EXISTS `about_content`;
@@ -190,5 +173,3 @@ CREATE TABLE `user_online` (
 
 insert  into `user_online`(`id`,`session`,`time`) values (9,'fjug90367fp5n6vk3rct4mni30','1524482471'),(8,'gsq85monr28fdnfjvmnir1qps4','1524486053'),(7,'l0tdit3ndvd1c6e1nfk8h5h100','1524484495'),(10,'0e24p3la737qtb241p3vg48m27','1524483524'),(11,'fi0d3f8suu92ugd4dsv4akee72','1524483729'),(12,'lj9o91md0dmlgea33c9kkeovt1','1524490303'),(13,'o150ilrhreo6ouafme9euch3u5','1524548397'),(14,'e6iedia1oi3d3gn8454ajvetk7','1524575447'),(15,'dolmn98tar4i21365s1gbocst5','1524577489'),(16,'mb0c6nfbd1bhemgbo66740vdb6','1524641318'),(17,'5aocfdm60082jmvq5j3a98au73','1524643543'),(18,'vskfi3vi2bk8e4utntk3jadi43','1524643548'),(19,'349tn0o5cccteltp62kd5o7l50','1524649647'),(20,'d3s3v5ugq8evg6d3ar5cf139b6','1524651171'),(21,'g3258n6ut4giim1t2mbbm34sj7','1524664525'),(22,'9jdot3bsg4sfdg4gs8j5sghrs1','1524740503'),(23,'l6os1qn1tll603nsk8d1508tb0','1524728331'),(24,'60a50b1ov6gatb4khsctnmsls5','1524730254'),(25,'b6tjvm7f95djnirrvjsk9v2v57','1524836720'),(26,'p7t9o02b0965onasrjhv5n4kg0','1524836749'),(27,'a3mj8stvdkir4350rrdcujss21','1524893644'),(28,'fq0eaq81tgib1c6abc0gbad3o0','1524923062'),(29,'mg40q36njkn8kqno5a0svvr0o4','1524896874'),(30,'s6a0sbl3pvnfaef2di13p5mna3','1524908105'),(31,'jkfbuoonrf34qs1tohi8ejjis4','1524898389'),(32,'oac0c7l4g7fskpoqeujelfoel5','1524898244'),(33,'nj836te59dgjrt3ocb6fgvv4l0','1524904926'),(34,'o5h2uh8jt4eegcpaau3u36otk6','1524923306'),(35,'29a21gat9necbl040esfa6fe50','1524909649'),(36,'afpelcmd91893qt25a5hrdl8r1','1524909880'),(37,'tafi4sn2n5lsqeujeuv7ekghd1','1524909918'),(38,'e5npv9rpqtk6fbtnuudgqmfac5','1524911681'),(39,'cakao5eitaq83f8u1si9nfhs03','1525150061'),(40,'k3os99aenkkv8ttlrt61cppii1','1524913712'),(41,'k0vue1gbqifo5egg9hej8l8e76','1524917726'),(42,'1t4d7r3gq01kubhefs7b30bnv6','1524918412'),(43,'tcfabut5bj1m40f5hv64vs8qi2','1524918528'),(44,'qmharg4ai3u0b6rvmbika894e6','1525086012'),(45,'ea80m5s7j5b2m8b41hh2uo2jm6','1525172777'),(46,'sbijrkvo1g6j1rj9uv5q64auu7','1525417088'),(47,'lenas3pj64l684g3mks30c96e7','1525414591'),(48,'n4u8vuo3f5m671k17i9hop4645','1525680768'),(49,'t3chip2nm33q19r55cn65l03a3','1527310972'),(50,'0quko4c6ps4qtj0q1rih87n2f6','1527490549'),(51,'g9t8jocj9c5gigtjq3ttetv210','1528443934'),(52,'53oms2q85lgvhka79k8sqe3e84','1529043461'),(53,'2b45lpn1c0f3rdjee68t0p82g5','1530787219'),(54,'nvnvdirngrfir5j703amvhuqa4','1530857365'),(55,'8rgb1ao0nl127d7nk5kv79qem2','1530858863'),(56,'0o14687o34lb1ccmmjl2khitn2','1530861425'),(57,'0mpu0faddb38atv3baq965a8e4','1531141826');
 
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

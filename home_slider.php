@@ -122,7 +122,7 @@
     .text-white{
         color: white;
     }
-    .nivo-main-image{
+    /*.nivo-main-image{
         height: 510px !important;
-    }
+    }*/
 </style>
