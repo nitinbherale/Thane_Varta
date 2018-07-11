@@ -33,10 +33,13 @@
 					<a href="comments.php"><div class="pull-left"><i class="fa fa-comments mr-20"></i><span class="right-nav-text">Comments </span></div><div class="pull-right"></div><div class="clearfix"></div></a>
 				</li>
 				<li>
-					<a href="user.php"><div class="pull-left"><i class="fa fa-audio-description mr-20"></i><span class="right-nav-text">Advertisement </span></div><div class="pull-right"></div><div class="clearfix"></div></a>
+					<a href="advertisement.php"><div class="pull-left"><i class="fa fa-audio-description mr-20"></i><span class="right-nav-text">Advertisement </span></div><div class="pull-right"></div><div class="clearfix"></div></a>
 				</li>
 				<li>
 					<a href="terms_and_conditions.php"><div class="pull-left"><i class="fa fa-pen-alt mr-20"></i><span class="right-nav-text">Terms And Conditions </span></div><div class="pull-right"></div><div class="clearfix"></div></a>
+				</li>
+				<li>
+					<a href="social_media.php"><div class="pull-left"><i class="fa fa-rss mr-20"></i><span class="right-nav-text">Social Media </span></div><div class="pull-right"></div><div class="clearfix"></div></a>
 				</li>
 				
 				<!-- <li>

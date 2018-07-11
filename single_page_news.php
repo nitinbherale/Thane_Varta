@@ -1,9 +1,9 @@
 <?php include 'connect.php';
 $uri = $_SERVER['REQUEST_URI'];
 $url_array = explode('/', $uri);
-$id = $url_array[3]; 
+$newz_id = $url_array[3]; 
 //echo $id;
- $news_qry = "select * from news where status = 0 and id = $id";  
+ $news_qry = "select * from news where status = 0 and id = $newz_id";  
  list($news_single) = exc_qry($news_qry);
  //echo count($news_single);
 ?>

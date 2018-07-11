@@ -65,7 +65,7 @@ if(!isValidUser())   redirect("login.php"); ?>
 													   <tr>
 														  <td>
 														  	<?php echo $a; ?>
-														  	<input form="form_set" type="checkbox" value="<?php echo $row["id"];?>" name="chk_box[]" />
+														  	
 														  </td>
 														  <td> <?php echo $row['author']; ?></td>
 														   <td> <?php echo $row['content']; ?></td>

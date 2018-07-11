@@ -1,176 +1,131 @@
  <div class="ne-sidebar sidebar-break-md col-lg-4 col-md-12">
-                            <div class="sidebar-box">
-                                <div class="topic-border color-cod-gray mb-30">
-                                    <div class="topic-box-lg color-cod-gray">Stay Connected</div>
-                                </div>
-                                <ul class="stay-connected overflow-hidden">
-                                    <li class="facebook">
-                                        <i class="fa fa-facebook" aria-hidden="true"></i>
-                                        <div class="connection-quantity">50.2 k</div>
-                                        <p>Fans</p>
-                                    </li>
-                                    <li class="twitter">
-                                        <i class="fa fa-twitter" aria-hidden="true"></i>
-                                        <div class="connection-quantity">10.3 k</div>
-                                        <p>Followers</p>
-                                    </li>
-                                    <li class="linkedin">
-                                        <i class="fa fa-linkedin" aria-hidden="true"></i>
-                                        <div class="connection-quantity">25.4 k</div>
-                                        <p>Fans</p>
-                                    </li>
-                                    <li class="rss">
-                                        <i class="fa fa-rss" aria-hidden="true"></i>
-                                        <div class="connection-quantity">20.8 k</div>
-                                        <p>Subscriber</p>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="sidebar-box">
-                                <div class="ne-banner-layout1 text-center">
-                                    <a href="#">
-                                        <img src="img/banner/banner3.jpg" alt="ad" class="img-fluid">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="sidebar-box">
-                                <div class="topic-border color-cod-gray mb-5">
-                                    <div class="topic-box-lg color-cod-gray">Recent News</div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-4 col-sm-6 col-6">
-                                        <div class="mt-25 position-relative">
-                                            <div class="topic-box-top-xs">
-                                                <div class="topic-box-sm color-cod-gray mb-20">Nature</div>
-                                            </div>
-                                            <a href="#" class="mb-10 display-block img-opacity-hover">
-                                                <img src="img/news/news171.jpg" alt="ad" class="img-fluid m-auto width-100">
-                                            </a>
-                                            <h3 class="title-medium-dark size-md mb-none">
-                                                <a href="#">Rosie Huntington Whitl Habits Career Art.Rosie TBeauty Habits.</a>
-                                            </h3>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-4 col-sm-6 col-6">
-                                        <div class="mt-25 position-relative">
-                                            <div class="topic-box-top-xs">
-                                                <div class="topic-box-sm color-cod-gray mb-20">Application</div>
-                                            </div>
-                                            <a href="#" class="mb-10 display-block img-opacity-hover">
-                                                <img src="img/news/news172.jpg" alt="ad" class="img-fluid m-auto width-100">
-                                            </a>
-                                            <h3 class="title-medium-dark size-md mb-none">
-                                                <a href="#">Rosie Huntington Whitl Habits Career Art.Rosie TBeauty Habits.</a>
-                                            </h3>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-4 col-sm-6 col-6">
-                                        <div class="mt-25 position-relative">
-                                            <div class="topic-box-top-xs">
-                                                <div class="topic-box-sm color-cod-gray mb-20">Life Style</div>
-                                            </div>
-                                            <a href="#" class="mb-10 display-block img-opacity-hover">
-                                                <img src="img/news/news173.jpg" alt="ad" class="img-fluid m-auto width-100">
-                                            </a>
-                                            <h3 class="title-medium-dark size-md mb-none">
-                                                <a href="#">Rosie Huntington Whitl Habits Career Art.Rosie TBeauty Habits.</a>
-                                            </h3>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-4 col-sm-6 col-6">
-                                        <div class="mt-25 position-relative">
-                                            <div class="topic-box-top-xs">
-                                                <div class="topic-box-sm color-cod-gray mb-20">Technology</div>
-                                            </div>
-                                            <a href="#" class="mb-10 display-block img-opacity-hover">
-                                                <img src="img/news/news174.jpg" alt="ad" class="img-fluid m-auto width-100">
-                                            </a>
-                                            <h3 class="title-medium-dark size-md mb-none">
-                                                <a href="#">Rosie Huntington Whitl Habits Career Art.Rosie TBeauty Habits.</a>
-                                            </h3>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-4 col-sm-6 col-6">
-                                        <div class="mt-25 position-relative">
-                                            <div class="topic-box-top-xs">
-                                                <div class="topic-box-sm color-cod-gray mb-20">Accessories</div>
-                                            </div>
-                                            <a href="#" class="mb-10 display-block img-opacity-hover">
-                                                <img src="img/news/news175.jpg" alt="ad" class="img-fluid m-auto width-100">
-                                            </a>
-                                            <h3 class="title-medium-dark size-md mb-none">
-                                                <a href="#">Rosie Huntington Whitl Habits Career Art.Rosie TBeauty Habits.</a>
-                                            </h3>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-4 col-sm-6 col-6">
-                                        <div class="mt-25 position-relative">
-                                            <div class="topic-box-top-xs">
-                                                <div class="topic-box-sm color-cod-gray mb-20">Model</div>
-                                            </div>
-                                            <a href="#" class="mb-10 display-block img-opacity-hover">
-                                                <img src="img/news/news176.jpg" alt="ad" class="img-fluid m-auto width-100">
-                                            </a>
-                                            <h3 class="title-medium-dark size-md mb-none">
-                                                <a href="#">Rosie Huntington Whitl Habits Career Art.Rosie TBeauty Habits.</a>
-                                            </h3>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="sidebar-box">
-                                <div class="topic-border color-cod-gray mb-30">
-                                    <div class="topic-box-lg color-cod-gray">Newsletter</div>
-                                </div>
-                                <div class="newsletter-area bg-primary">
-                                    <h2 class="title-medium-light size-xl pl-30 pr-30">Subscribe to our mailing list to get the new updates!</h2>
-                                    <img src="img/banner/newsletter.png" alt="newsletter" class="img-fluid m-auto mb-15">
-                                    <p>Subscribe our newsletter to stay updated</p>
-                                    <div class="input-group stylish-input-group">
-                                        <input type="text" placeholder="Enter your mail" class="form-control">
-                                        <span class="input-group-addon">
-                                            <button type="submit">
-                                                <i class="fa fa-angle-right" aria-hidden="true"></i>
-                                            </button>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="sidebar-box">
-                                <div class="topic-border color-cod-gray mb-25">
-                                    <div class="topic-box-lg color-cod-gray">Tags</div>
-                                </div>
-                                <ul class="sidebar-tags">
-                                    <li>
-                                        <a href="#">Apple</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Business</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Architecture</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Gadgets</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Software</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Microsoft</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Robotic</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Technology</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Others</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="sidebar-box">
+    <div class="sidebar-box">
+        <div class="topic-border color-cod-gray mb-30">
+            <div class="topic-box-lg color-cod-gray">Stay Connected</div>
+        </div>
+         <ul class="stay-connected overflow-hidden">
+            <li class="facebook">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+                <div class="connection-quantity">50.2 k</div>
+                <p>Fans</p>
+            </li>
+            <li class="twitter">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+                <div class="connection-quantity">10.3 k</div>
+                <p>Followers</p>
+            </li>
+            <li class="linkedin">
+                <i class="fa fa-linkedin" aria-hidden="true"></i>
+                <div class="connection-quantity">25.4 k</div>
+                <p>Fans</p>
+            </li>
+            <li class="rss">
+                <i class="fa fa-rss" aria-hidden="true"></i>
+                <div class="connection-quantity">20.8 k</div>
+                <p>Subscriber</p>
+            </li>
+        </ul>
+    </div>
+    <div class="sidebar-box">
+        <div class="ne-banner-layout1 text-center">
+            <a href="#">
+                <img src="img/banner/banner3.jpg" alt="ad" class="img-fluid">
+            </a>
+        </div>
+    </div>
+    <div class="sidebar-box">
+        <div class="topic-border color-cod-gray mb-5">
+            <div class="topic-box-lg color-cod-gray">Recent News</div>
+        </div>
+        <?php $news_qry = "select * from news where status = 0 and id != $newz_id order by post_date desc,id desc";  
+         list($news_result) = exc_qry($news_qry);
+         ?>
+        <div class="row">
+             <?php   for($i=0;$i<6;$i++) {?>
+            <div class="col-lg-6 col-md-4 col-sm-6 col-6">
+                <div class="mt-25 position-relative">
+                    <div class="topic-box-top-xs">
+                        <div class="topic-box-sm color-cod-gray mb-20"><?php echo get_cat_name($news_result[$i]['category']); ?></div>
+                    </div>
+                    <a href="#" class="mb-10 display-block img-opacity-hover">
+                        <img src="img/news/<?php echo $news_result[$i]['img']; ?>" alt="ad" class="img-fluid m-auto width-100">
+                    </a>
+                    <h3 class="title-medium-dark size-md mb-none">
+                        <a href="single_page_news/<?php echo  $news_result[$i]['id'].'/'.$news_result[$i]['heading']  ?>/">
+                            <?php $heading = substr($news_result[$i]['heading'],0,100);
+                            if(substr($heading, 0, strrpos($heading, ' '))!='') $heading = substr($heading, 0, strrpos($heading, ' ')); echo $heading." ..."; ?></a>
+                    </h3>
+                </div>
+            </div>
+             <?php } ?>
+            <div class="col-lg-6 col-md-4 col-sm-6 col-6">
+                <div class="mt-25 position-relative">
+                    <div class="topic-box-top-xs">
+                        <div class="topic-box-sm color-cod-gray mb-20">Application</div>
+                    </div>
+                    <a href="#" class="mb-10 display-block img-opacity-hover">
+                        <img src="img/news/news172.jpg" alt="ad" class="img-fluid m-auto width-100">
+                    </a>
+                    <h3 class="title-medium-dark size-md mb-none">
+                        <a href="#">Rosie Huntington Whitl Habits Career Art.Rosie TBeauty Habits.</a>
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="sidebar-box">
+            <div class="topic-border color-cod-gray mb-30">
+                <div class="topic-box-lg color-cod-gray">Newsletter</div>
+            </div>
+            <div class="newsletter-area bg-primary">
+                <h2 class="title-medium-light size-xl pl-30 pr-30">Subscribe to our mailing list to get the new updates!</h2>
+                <img src="img/banner/newsletter.png" alt="newsletter" class="img-fluid m-auto mb-15">
+                <p>Subscribe our newsletter to stay updated</p>
+                <div class="input-group stylish-input-group">
+                    <input type="text" placeholder="Enter your mail" class="form-control">
+                    <span class="input-group-addon">
+                        <button type="submit">
+                            <i class="fa fa-angle-right" aria-hidden="true"></i>
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar-box">
+            <div class="topic-border color-cod-gray mb-25">
+                <div class="topic-box-lg color-cod-gray">Tags</div>
+            </div>
+            <ul class="sidebar-tags">
+                <li>
+                    <a href="#">Apple</a>
+                </li>
+                <li>
+                    <a href="#">Business</a>
+                </li>
+                <li>
+                    <a href="#">Architecture</a>
+                </li>
+                <li>
+                    <a href="#">Gadgets</a>
+                </li>
+                <li>
+                    <a href="#">Software</a>
+                </li>
+                <li>
+                    <a href="#">Microsoft</a>
+                </li>
+                <li>
+                    <a href="#">Robotic</a>
+                </li>
+                <li>
+                    <a href="#">Technology</a>
+                </li>
+                <li>
+                    <a href="#">Others</a>
+                </li>
+            </ul>
+        </div>
+                           <!--  <div class="sidebar-box">
                                 <div class="topic-border color-cod-gray mb-30">
                                     <div class="topic-box-lg color-cod-gray">Most Reviews</div>
                                 </div>
@@ -289,5 +244,5 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
+                            </div> -->
+ </div>
