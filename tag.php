@@ -1,9 +1,9 @@
 <?php include 'connect.php'; 
 $uri = $_SERVER['REQUEST_URI'];
 $url_array = explode('/', $uri);
-$cat_id = $url_array[3]; 
-$Pg =  $url_array[5];
-$cat_new_qry = "select * from news where status = 0 and category = $cat_id or sub_category = $cat_id order by post_date";
+$tag = $url_array[3]; 
+$Pg =  $url_array[4];
+$cat_new_qry = "select * from news where status = 0 and tags like '%$tag%' order by post_date";
 ?>
 <!doctype html>
 <html class="no-js" lang="">
@@ -62,7 +62,7 @@ $cat_new_qry = "select * from news where status = 0 and category = $cat_id or su
                <?php include("header.php") ?>
             <!-- News Feed Area Start Here -->
             
-             <?php include("cat_section.php") ?>
+             <?php include("tag_section.php") ?>
              
             <!-- Footer Area Start Here -->
              <?php include("footer.php") ?>

@@ -75,7 +75,7 @@ if(isset($_POST['leave_comment'])){
                         $list = array_map('trim',explode(",",$str));
                         $i = 0;
                         while($i<count($list)){
-                        echo '<li> <a href="tags.php?t='.$list[$i].'">'.$list[$i].'</a></li>';
+                        echo '<li> <a href="tag/'.$list[$i].'/">'.$list[$i].'</a></li>';
                         $i++;}?>
                         <!-- li>
                             <a href="#">#Business</a>

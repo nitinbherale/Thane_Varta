@@ -108,7 +108,7 @@
 
                 <?php for ($r=0; $r < 12 ; $r++) { ?>
                     <li>
-                    <a href="tags/<?php echo $news_tag[$r]; ?>/"><?php echo $news_tag[$r]; ?></a>
+                    <a href="tag/<?php echo $news_tag[$r]; ?>/"><?php echo $news_tag[$r]; ?></a>
                 </li>
                 
                 <?php } ?>

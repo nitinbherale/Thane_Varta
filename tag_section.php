@@ -1,25 +1,12 @@
              <!-- Breadcrumb Area Start Here -->
-
-             <script type="text/javascript">
-                 function getvalue() {
-
-                        var year = document.getElementById('ne-year').value;
-                        var month = document.getElementById('ne-month').value;
-                        
-                        var url = "category/<?php echo $cat_id.'/'.get_cat_name($cat_id); ?>/1/"+year+"-"+month;
-                       // window.alert(url);
-                        window.location.href=url;
-
-                    }
-             </script>
             <section class="breadcrumbs-area" style="background-image: url('img/banner/breadcrumbs-banner.jpg');">
                 <div class="container">
                     <div class="breadcrumbs-content">
-                        <h1><?php echo get_cat_name($cat_id); ?></h1>
+                        <h1><?php echo $tag; ?></h1>
                         <ul>
                             <li>
                                 <a href="index/">Home</a> -</li>
-                            <li><?php echo get_cat_name($cat_id); ?></li>
+                            <li><?php echo $tag; ?></li>
                         </ul>
                     </div>
                 </div>
@@ -30,57 +17,9 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-8 col-md-12">
-                                <div class="row tab-space5">
-                                    <div class="col-lg-4 col-md-6 col-sm-6 col-6">
-                                        <div class="form-group">
-                                            <div class="ne-custom-select">
-                                                <select id="ne-year" class='select2' name="year">
-                                                    <?php echo $year = date('Y'); 
-                                                        for ($i=$year; $i >= 2017; $i--) { ?> 
-                                                    <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-                                                     <?php   }
-                                                    ?>
-                                                </select>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-6 col-sm-6 col-6">
-                                        <div class="form-group">
-                                            <div class="ne-custom-select">
-                                                <select id="ne-month" class='select2' name="month">
-                                                    <option value="">Select Month</option>
-                                                    <?php for ($i=1; $i <= 12 ; $i++) {  ?>
-                                                         <option value="<?php echo date("m",mktime(0,0,0,$i,1,date("Y"))); ?>"><?php echo date("F",mktime(0,0,0,$i,1,date("Y"))); ?></option>
-                                                  <?php  } ?>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                 <!--    <div class="col-lg-3 col-md-6 col-sm-6 col-6">
-                                        <div class="form-group">
-                                            <div class="ne-custom-select">
-                                                <select id="ne-categories" class='select2'>
-                                                    <option value="0">Select Categories</option>
-                                                    <option value="1">Sports</option>
-                                                    <option value="2">Politics</option>
-                                                    <option value="3">Tech</option>
-                                                    <option value="4">Travel</option>
-                                                    <option value="5">Fashion</option>
-                                                    <option value="6">Business</option>
-                                                    <option value="7">Food</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div> -->
-                                    <div class="col-lg-4 col-md-6 col-sm-6 col-6 text-right">
-                                        <button type="submit"  class="btn-ftg-ptp-40 disabled mb-5" onclick="getvalue()">Search</button>
-                                    </div>
-                                </div>
-                            
                             <div class="row">
                                 <?php  $MxAlw = 1;
-                                
+                                //echo $cat_new_qry;
                                 list($TtlPg,$Pg,$news,$Ttl) =  listData($Pg,$cat_new_qry);
                                 //echo count($news);
                                 for ($i=0; $i < count($news); $i++) { 
@@ -93,7 +32,7 @@
                                                 <img src="img/news/<?php echo $news[$i]['img']; ?>" alt="news" class="img-fluid">
                                             </a>
                                             <div class="topic-box-top-xs">
-                                                <div class="topic-box-sm color-cod-gray mb-20"> <?php echo  get_cat_name($news[0]['category']) ?></div>
+                                                <div class="topic-box-sm color-cod-gray mb-20"> <?php echo  get_cat_name($news[0]['category'])?></div>
                                             </div>
                                         </div>
                                         <div class="media-body p-mb-none-child media-margin30">
@@ -101,7 +40,7 @@
                                                 <ul>
                                                     <li>
                                                         <span>by</span>
-                                                        <a><?php echo $news[$i]['author']; ?></a>
+                                                        <a><?php echo $news[$i]['author'];  ?></a>
                                                     </li>
                                                     <li>
                                                         <span>
@@ -167,12 +106,12 @@
                                                 if($PrvPrPg!=1){ 
                                                 $left = $PrvPrPg-1; ?>
                                                     <li >
-                                                <a href="category/<?php echo $cat_id.'/'.get_cat_name($cat_id).'/'.$left.'/' ;?>"><span class="fa fa-chevron-left"></span></a>
+                                                <a href="tag/<?php echo $tag.'/'.$left.'/' ;?>"><span class="fa fa-chevron-left"></span></a>
                                             </li>
                                                <?php  }
                                                 ?>
                                             <li >
-                                                <a href="category/<?php echo $cat_id.'/'.get_cat_name($cat_id).'/'.$PrvPrPg.'/' ;?>"><?php echo $PrvPrPg;?></a>
+                                                <a href="tag/<?php echo $tag.'/'.$PrvPrPg.'/' ;?>"><?php echo $PrvPrPg;?></a>
                                             </li>
                                         <?php } ?>
                                         <li class="active">
@@ -182,14 +121,14 @@
                         {
                             $NxtPrPg=$Pg+1;?>
                                             <li>
-                                                <a href="category/<?php echo $cat_id.'/'.get_cat_name($cat_id).'/'.$NxtPrPg.'/' ;?>"><?php echo $NxtPrPg;?></a>
+                                                <a href="tag/<?php echo $tag.'/'.$NxtPrPg.'/' ;?>"><?php echo $NxtPrPg;?></a>
 
                                             </li>
 
                                            <?php  if($NxtPrPg!=$TtlPg){ 
                                                 $right = $NxtPrPg+1; ?>
                                                     <li >
-                                                <a href="category/<?php echo $cat_id.'/'.get_cat_name($cat_id).'/'.$right.'/' ;?>"><span class="fa fa-chevron-right"></span></a>
+                                                <a href="tag/<?php echo $tag.'/'.$right.'/' ;?>"><span class="fa fa-chevron-right"></span></a>
                                             </li>
                                                <?php  }
                                                 ?>
@@ -211,7 +150,7 @@
                             </div>
                         <?php } ?>
                         </div>
-                <?php include 'right_side.php'; ?>
+                        <?php include 'right_side.php';?>
                     </div>
                 </div>
             </section>
