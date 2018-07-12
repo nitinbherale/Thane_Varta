@@ -5,8 +5,11 @@
 
                         var year = document.getElementById('ne-year').value;
                         var month = document.getElementById('ne-month').value;
-                        
-                        var url = "category/<?php echo $cat_id.'/'.get_cat_name($cat_id); ?>/1/"+year+"-"+month;
+                        var date = year;
+                        if(month.length>0){
+                            date += "-"+month;
+                        }
+                        var url = "category/<?php echo $cat_id.'/'.get_cat_name($cat_id); ?>/1/"+date+"/";
                        // window.alert(url);
                         window.location.href=url;
 
@@ -79,7 +82,7 @@
                                 </div>
                             
                             <div class="row">
-                                <?php  $MxAlw = 1;
+                                <?php  $MxAlw = 2;
                                 
                                 list($TtlPg,$Pg,$news,$Ttl) =  listData($Pg,$cat_new_qry);
                                 //echo count($news);

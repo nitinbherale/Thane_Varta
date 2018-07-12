@@ -1,6 +1,4 @@
-
-    <!-- Offcanvas Menu Start -->
-            <div id="offcanvas-body-wrapper" class="offcanvas-body-wrapper">
+ <div id="offcanvas-body-wrapper" class="offcanvas-body-wrapper">
                 <div id="offcanvas-nav-close" class="offcanvas-nav-close offcanvas-menu-btn">
                     <a href="#" class="menu-times re-point">
                         <span></span>
@@ -9,7 +7,15 @@
                 </div>
                 <div class="offcanvas-main-body">
                     <ul id="accordion" class="offcanvas-nav panel-group">
-                        <li class="panel panel-default">
+                        <li>
+                            <a href="index/">
+                                <i class="fa fa-home" aria-hidden="true"></i>Home</a>
+                        </li>
+                        <li>
+                            <a href="about_us/">
+                                <i class="fa fa-file-text" aria-hidden="true"></i>About Us</a>
+                        </li>
+                       <!--  <li class="panel panel-default">
                             <div class="panel-heading">
                                 <a aria-expanded="false" class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
                                     <i class="fa fa-home" aria-hidden="true"></i>Home Pages</a>
@@ -41,59 +47,14 @@
                                     </ul>
                                 </div>
                             </div>
+                        </li> -->
+                        <li>
+                            <a href="https://www.youtube.com/channel/UCr9uCki6KP6ZcIHDzb3YEQQ">
+                                <i class="fa fa-youtube" aria-hidden="true"></i>Youtube</a>
                         </li>
                         <li>
-                            <a href="#">
-                                <i class="fa fa-user" aria-hidden="true"></i>Author Post Page</a>
-                        </li>
-                        <li class="panel panel-default">
-                            <div class="panel-heading">
-                                <a aria-expanded="false" class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-                                    <i class="fa fa-file-text" aria-hidden="true"></i>Post Pages</a>
-                            </div>
-                            <div aria-expanded="false" id="collapseTwo" role="tabpanel" class="panel-collapse collapse">
-                                <div class="panel-body">
-                                    <ul class="offcanvas-sub-nav">
-                                        <li>
-                                            <a href="#">Post Style 1</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Post Style 2</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Post Style 3</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Post Style 4</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="panel panel-default">
-                            <div class="panel-heading">
-                                <a aria-expanded="false" class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-                                    <i class="fa fa-info-circle" aria-hidden="true"></i>News Details Pages</a>
-                            </div>
-                            <div aria-expanded="false" id="collapseThree" role="tabpanel" class="panel-collapse collapse">
-                                <div class="panel-body">
-                                    <ul class="offcanvas-sub-nav">
-                                        <li>
-                                            <a href="#">News Details 1</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">News Details 2</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">News Details 3</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="archive.html">
-                                <i class="fa fa-archive" aria-hidden="true"></i>Archive Page</a>
+                            <a href="https://twitter.com/rdtikhe">
+                                <i class="fa fa-twitter" aria-hidden="true"></i>Twitter</a>
                         </li>
                         <li class="panel panel-default">
                             <div class="panel-heading">
@@ -115,13 +76,12 @@
                         </li>
                         <li>
                             <a href="#">
-                                <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>404 Error Page</a>
+                                <i class="fa fa-facebook" aria-hidden="true"></i>Facebook</a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="contact/">
                                 <i class="fa fa-phone" aria-hidden="true"></i>Contact Page</a>
                         </li>
                     </ul>
                 </div>
             </div>
-            <!-- Offcanvas Menu End -->

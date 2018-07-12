@@ -18,7 +18,7 @@
                     <div class="row">
                         <div class="col-lg-8 col-md-12">
                             <div class="row">
-                                <?php  $MxAlw = 1;
+                                <?php  $MxAlw = 2;
                                 //echo $cat_new_qry;
                                 list($TtlPg,$Pg,$news,$Ttl) =  listData($Pg,$cat_new_qry);
                                 //echo count($news);
