@@ -2,8 +2,9 @@
 $uri = $_SERVER['REQUEST_URI'];
 $url_array = explode('/', $uri);
 $newz_id = $url_array[3]; 
-//echo $id;
+//echo $newz_id;
  $news_qry = "select * from news where status = 0 and id = $newz_id";  
+// echo $news_qry;
  list($news_single) = exc_qry($news_qry);
  //echo count($news_single);
 ?>

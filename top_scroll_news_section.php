@@ -11,9 +11,14 @@
                         <div class="col-lg-10 col-md-9 col-sm-8 col-7">
                             <div class="feeding-text-light2">
                                 <ol id="sample" class="ticker">
-                                    <?php   for($i=0;$i<count($top_news);$i++) {?>
+                                    <?php   for($i=0;$i<count($top_news);$i++) { 
+                                        $heading = substr($top_news[$i]['heading'],0,100);
+                                                           if(substr($heading, 0, strrpos($heading, ' '))!='') $heading = substr($heading, 0, strrpos($heading, ' ')); 
+                                                           $heading = str_replace(" ","_",$heading);
+                                        ?>
                                     <li>
-                                        <a href="single_page_news/<?php echo  $top_news[$i]['id'].'/'.$top_news[$i]['heading']  ?>/"> <?php echo $top_news[$i]['heading']; ?></a>
+
+                                        <a href="single_page_news/<?php echo  $top_news[$i]['id'].'/'.$heading;  ?>/"> <?php echo $top_news[$i]['heading']; ?></a>
                                     </li>
                                     <?php } ?>
                                 </ol>

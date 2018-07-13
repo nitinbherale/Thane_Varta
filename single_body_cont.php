@@ -33,7 +33,11 @@ if(isset($_POST['leave_comment'])){
 ?>
 <?php 
  $com_qry = "select * from comments where status = 1  and news_id = ".$newz_id." order by date desc";
-    list($comments) = exc_qry($com_qry); ?>
+    list($comments) = exc_qry($com_qry); 
+    $heading = substr($news_single[0]['heading'],0,100);
+   if(substr($heading, 0, strrpos($heading, ' '))!='') $heading = substr($heading, 0, strrpos($heading, ' ')); 
+   $heading2 = str_replace(" ","_",$heading);
+    ?>
 <section class="bg-body section-space-less30">
     <div class="container">
         <div class="row">
@@ -52,15 +56,15 @@ if(isset($_POST['leave_comment'])){
                                 <span>By</span> <?php echo $news_single[0]['author']; ?>
                         </li>
                         <li>
-                            <a href="#">
+                            <a>
                                 <i class="fa fa-calendar" aria-hidden="true"></i><?php echo date("F d, Y", strtotime($news_single[0]['post_date'])); ?></a>
                         </li>
-                        <li>
+                       <!--  <li>
                             <a href="#">
                                 <i class="fa fa-eye" aria-hidden="true"></i>202</a>
-                        </li>
+                        </li> -->
                         <li>
-                            <a href="#">
+                            <a>
                                 <i class="fa fa-comments" aria-hidden="true"></i><?php echo count($comments); ?></a>
                         </li>
                     </ul>
@@ -122,7 +126,7 @@ if(isset($_POST['leave_comment'])){
                             </li>
                         </ul>
                     </div>
-                    <div class="row no-gutters divider blog-post-slider">
+                <!--     <div class="row no-gutters divider blog-post-slider">
                         <div class="col-lg-6 col-md-6 col-sm-6 col-6">
                             <a href="#" class="prev-article">
                                 <i class="fa fa-angle-left" aria-hidden="true"></i>Previous article</a>
@@ -134,7 +138,7 @@ if(isset($_POST['leave_comment'])){
                             </a>
                             <h3 class="title-medium-dark pl-50">The only thing that overcomes hard luck is hard work</h3>
                         </div>
-                    </div>
+                    </div> -->
                  <!--    <div class="author-info p-35-r mb-50 border-all">
                         <div class="media media-none-xs">
                             <img src="img/author.jpg" alt="author" class="img-fluid rounded-circle">
@@ -202,7 +206,7 @@ if(isset($_POST['leave_comment'])){
                             <div class="row">
                                 <div class="col-md-6 col-sm-12">
                                     <div class="form-group">
-                                        <input type="hidden" name="heading" value="<?php echo $news_single[0]['heading'] ?>">
+                                        <input type="hidden" name="heading" value="<?php echo $heading2; ?>">
                                         <input type="hidden" name="news_id" value="<?php echo $news_single[0]['id'] ?>">
                                         <input placeholder="Name*" class="form-control" name="name" type="text" required>
                                         <div class="help-block with-errors"></div>
@@ -236,7 +240,7 @@ if(isset($_POST['leave_comment'])){
                     </div>
                 </div>
             </div>
-           <?php include("sidebar.php") ?>
+           <?php include("sidebar.php"); ?>
         </div>
     </div>
 </section>

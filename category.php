@@ -61,7 +61,7 @@ $cat_new_qry = "select * from news where status = 0 and (category = $cat_id or s
         <!-- Preloader End Here -->
         <div id="wrapper" class="wrapper">
             <!-- Header Area Start Here -->
-               <?php include("header.php") ?>
+               <?php include("header.php"); ?>
             <!-- News Feed Area Start Here -->
             
              <?php include("cat_section.php") ?>

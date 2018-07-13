@@ -9,14 +9,20 @@
                             <div class="main-slider1 img-overlay-slider">
                                 <div class="bend niceties preview-1">
                                     <div id="ensign-nivoslider-3" class="slides">
-                                        <?php   for($i=0;$i<3;$i++) {?>
+                                        <?php   for($i=0;$i<3;$i++) { 
+
+                                            ?>
                                         <img src="img/news/<?php echo $news_result[$i]['img']; ?>" alt="slider" title="#slider-direction-<?php echo $news_result[$i]['id']; ?>"  />
                                     <?php } ?>
                                        <!--  <img src="img/banner/slide2.jpg" alt="slider" title="#slider-direction-2" />
                                         <img src="img/banner/slide3.jpg" alt="slider" title="#slider-direction-3" /> -->
                                     </div>
                                     <!-- direction 1 -->
-                                    <?php   for($i=0;$i<3;$i++) {?>
+                                    <?php   for($i=0;$i<3;$i++) {
+                                        $heading = substr($news_result[$i]['heading'],0,100);
+                                                           if(substr($heading, 0, strrpos($heading, ' '))!='') $heading = substr($heading, 0, strrpos($heading, ' ')); 
+                                                           $heading = str_replace(" ","_",$heading);
+                                        ?>
                                     <div id="slider-direction-<?php echo $news_result[$i]['id']; ?>" class="t-cn slider-direction">
                                         <div class="slider-content s-tb slide-1">
                                             <div class="title-container s-tb-c">
@@ -36,7 +42,7 @@
                                                             </li>
                                                         </ul>
                                                     </div>
-                                                    <div class="slider-title"><a href="single_page_news/<?php echo  $news_result[$i]['id'].'/'.$news_result[$i]['heading']  ?>/" class="text-white"><?php echo $news_result[$i]['heading']; ?></a></div>
+                                                    <div class="slider-title"><a href="single_page_news/<?php echo  $news_result[$i]['id'].'/'.$heading;  ?>/" class="text-white"><?php echo $news_result[$i]['heading']; ?></a></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -72,9 +78,13 @@
                         <div class="col-xl-4 col-lg-12">
                             <div class="item-box-light-md-less30 ie-full-width">
                                 <div class="row">
-                                     <?php   for($i=3;$i<7;$i++) {?>
+                                     <?php   for($i=3;$i<7;$i++) {  
+                                         $heading = substr($news_result[$i]['heading'],0,100);
+                                                           if(substr($heading, 0, strrpos($heading, ' '))!='') $heading = substr($heading, 0, strrpos($heading, ' ')); 
+                                                           $heading2 = str_replace(" ","_",$heading);
+                                        ?>
                                     <div class="media mb-30 col-xl-12 col-lg-6 col-md-6 col-sm-12">
-                                        <a class="img-opacity-hover" href="single-news-1.html">
+                                        <a class="img-opacity-hover" href="single_page_news/<?php echo  $news_result[$i]['id'].'/'.$heading2;  ?>/">
                                             <img src="img/news/<?php echo $news_result[$i]['img']; ?>" width="124px" height="88px" alt="news" class="img-fluid">
                                         </a>
                                         <div class="media-body media-padding5">
@@ -87,8 +97,7 @@
                                                 </ul>
                                             </div>
                                             <h3 class="title-medium-dark size-md mb-none">
-                                                <a href="single_page_news/<?php echo  $news_result[$i]['id'].'/'.$news_result[$i]['heading']  ?>/"><?php $description = substr($news_result[$i]['heading'],0,100);
-                                                           if(substr($description, 0, strrpos($description, ' '))!='') $description = substr($description, 0, strrpos($description, ' ')); echo $description." ..."; ?></a>
+                                                <a href="single_page_news/<?php echo  $news_result[$i]['id'].'/'.$heading2;  ?>/"><?php echo $heading." ..."; ?></a>
                                             </h3>
                                         </div>
                                     </div>

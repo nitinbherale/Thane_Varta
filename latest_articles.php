@@ -1,4 +1,4 @@
-<!-- Latest Articles Area Start Here -->
+ <!-- Latest Articles Area Start Here -->
             <section class="section-space-bottom-less30">
                 <div class="container">
                     <div class="row">
@@ -8,11 +8,15 @@
                                     <div class="topic-box-lg color-cinnabar">News</div>
                                 </div>
                                 <div class="row">
-                                    <?php for($i=7;$i<11;$i++) {?>
+                                    <?php for($i=7;$i<11;$i++) {
+                                         $heading = substr($news_result[$i]['heading'],0,100);
+                                                           if(substr($heading, 0, strrpos($heading, ' '))!='') $heading = substr($heading, 0, strrpos($heading, ' ')); 
+                                                           $heading2 = str_replace(" ","_",$heading);
+                                        ?>
                                     <div class="col-lg-12 col-md-6 col-sm-12">
                                         <div class="media media-none--md mb-30">
                                             <div class="position-relative width-40">
-                                                <a href="single_page_news/<?php echo  $news_result[$i]['id'].'/'.$news_result[$i]['heading']  ?>/" class="img-opacity-hover">
+                                                <a href="single_page_news/<?php echo  $news_result[$i]['id'].'/'.$heading2;  ?>/" class="img-opacity-hover">
                                                     <img src="img/news/<?php echo $news_result[$i]['img']; ?>" alt="news" class="img-fluid img-news img-responsive ">
                                                 </a>
                                                 <div class="topic-box-top-xs">
@@ -34,9 +38,8 @@
                                                     </ul>
                                                 </div>
                                                 <h3 class="title-semibold-dark size-lg mb-15">
-                                                    <a href="single_page_news/<?php echo  $news_result[$i]['id'].'/'.$news_result[$i]['heading']  ?>/">
-                                                        <?php $heading = substr($news_result[$i]['heading'],0,100);
-                                                           if(substr($heading, 0, strrpos($heading, ' '))!='') $heading = substr($heading, 0, strrpos($heading, ' ')); echo $heading." ..."; ?>
+                                                    <a href="single_page_news/<?php echo  $news_result[$i]['id'].'/'.$heading2;  ?>/">
+                                                        <?php echo $heading." ..."; ?>
                                                     </a>
                                                 </h3>
                                                 <p><?php $description = substr($news_result[$i]['content'],0,500);
@@ -92,6 +95,7 @@
                                         <a href="#">
                                             <i class="fa fa-facebook" aria-hidden="true"></i>
                                             <div class="connection-quantity">50.2 k</div>
+                                        
                                             <p>Fans</p>
                                         </a>
                                     </li>
@@ -133,18 +137,21 @@
                                 <div class="tab-content">
                                     <div role="tabpanel" class="tab-pane fade active show" id="recent">
                                         <div class="row">
-                                             <?php for($i=11;$i<19;$i++) {?>
+                                             <?php for($i=11;$i<19;$i++) {
+                                                 $heading = substr($news_result[$i]['heading'],0,100);
+                                                           if(substr($heading, 0, strrpos($heading, ' '))!='') $heading = substr($heading, 0, strrpos($heading, ' ')); 
+                                                           $heading2 = str_replace(" ","_",$heading);
+                                                ?>
                                             <div class="col-xl-6 col-lg-4 col-md-4 col-sm-6 col-6 mb-25">
                                                 <div class="position-relative">
                                                     <div class="topic-box-top-xs">
                                                         <div class="topic-box-sm color-cod-gray mb-20"><?php echo get_cat_name($news_result[$i]['category']) ?></div>
                                                     </div>
-                                                    <a href="single_page_news/<?php echo  $news_result[$i]['id'].'/'.$news_result[$i]['heading']  ?>/" class="img-opacity-hover">
+                                                    <a href="single_page_news/<?php echo  $news_result[$i]['id'].'/'.$heading2;  ?>/" class="img-opacity-hover">
                                                         <img src="img/news/<?php echo $news_result[$i]['img']; ?>" alt="news" class="img-fluid width-100 mb-10">
                                                     </a>
                                                     <h3 class="title-medium-dark size-sm mb-none">
-                                                        <a href="single_page_news/<?php echo  $news_result[$i]['id'].'/'.$news_result[$i]['heading']  ?>/"> <?php $heading = substr($news_result[$i]['heading'],0,80);
-                                                           if(substr($heading, 0, strrpos($heading, ' '))!='') $heading = substr($heading, 0, strrpos($heading, ' ')); echo $heading." ..."; ?></a>
+                                                        <a href="single_page_news/<?php echo  $news_result[$i]['id'].'/'.$heading2;  ?>/"> <?php echo $heading." ..."; ?></a>
                                                     </h3>
                                                 </div>
                                             </div>

@@ -1,22 +1,16 @@
-<html>
-<body>
-	<?php  include 'connect.php';
-    $news_tag=array();
-        list($tags) = exc_qry('select tags from news where status = 0');
-        //print_r($tags);
-        for ($t=0; $t < count($tags); $t++) { 
-            $i_tag = $tags[$t]['tags'];
-            $list = array_map('trim',explode(",",$i_tag));
-            for($i=0;$i<count($list);$i++){
-            array_push($news_tag,$list[$i]);
-            }
-        }
-        print_r($news_tag);
-        $a=array("a"=>"red","b"=>"green","c"=>"red");
-        print_r(array_unique($a));
-       echo count(array_unique($a));    
+<?php
 
+$url = "https://www.facebook.com/rdtikhe/";  //This could be anything URL source including stripslashes($_POST['url'])
+// $url = urlencode($source_url);
+// //echo $url;
+// $xml = file_get_contents($url);
+
+$homepage = file_get_contents($url);
+echo ($homepage);// $xml = simplexml_load_string($xml);
+// $shares =  $xml->link_stat->share_count;
+// $likes =  $xml->link_stat->like_count;
+// $comments = $xml->link_stat->comment_count;
+// $total = $xml->link_stat->total_count;
+// $max = max($shares,$likes,$comments);
+//echo $likes;
 ?>
-</body>
-</script>
-</html>

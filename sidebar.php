@@ -41,19 +41,22 @@
          list($news_result) = exc_qry($news_qry);
          ?>
         <div class="row">
-             <?php   for($i=0;$i<6;$i++) {?>
+             <?php   for($i=0;$i<6;$i++) {
+                $heading = substr($news_result[$i]['heading'],0,100);
+               if(substr($heading, 0, strrpos($heading, ' '))!='') $heading = substr($heading, 0, strrpos($heading, ' ')); 
+               $heading2 = str_replace(" ","_",$heading);
+                ?>
             <div class="col-lg-6 col-md-4 col-sm-6 col-6">
                 <div class="mt-25 position-relative">
                     <div class="topic-box-top-xs">
                         <div class="topic-box-sm color-cod-gray mb-20"><?php echo get_cat_name($news_result[$i]['category']); ?></div>
                     </div>
-                    <a href="#" class="mb-10 display-block img-opacity-hover">
+                    <a href="single_page_news/<?php echo  $news_result[$i]['id'].'/'.$heading2;  ?>/" class="mb-10 display-block img-opacity-hover">
                         <img src="img/news/<?php echo $news_result[$i]['img']; ?>" height="117px" alt="ad" class="img-fluid m-auto width-100">
                     </a>
                     <h3 class="title-medium-dark size-md mb-none">
-                        <a href="single_page_news/<?php echo  $news_result[$i]['id'].'/'.$news_result[$i]['heading']  ?>/">
-                            <?php $heading = substr($news_result[$i]['heading'],0,100);
-                            if(substr($heading, 0, strrpos($heading, ' '))!='') $heading = substr($heading, 0, strrpos($heading, ' ')); echo $heading." ..."; ?></a>
+                        <a href="single_page_news/<?php echo  $news_result[$i]['id'].'/'.$heading2;  ?>/">
+                           <b> <?php  echo $heading." ..."; ?></b></a>
                     </h3>
                 </div>
             </div>

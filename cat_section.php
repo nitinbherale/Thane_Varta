@@ -87,12 +87,15 @@
                                 list($TtlPg,$Pg,$news,$Ttl) =  listData($Pg,$cat_new_qry);
                                 //echo count($news);
                                 for ($i=0; $i < count($news); $i++) { 
+                                     $heading = substr($news[$i]['heading'],0,100);
+                                                           if(substr($heading, 0, strrpos($heading, ' '))!='') $heading = substr($heading, 0, strrpos($heading, ' ')); 
+                                                           $heading2 = str_replace(" ","_",$heading);
                                  ?>
 
                                 <div class="col-xl-12 col-lg-6 col-md-6 col-sm-12">
                                     <div class="media media-none--lg mb-30">
                                         <div class="position-relative width-40">
-                                            <a href="single-news-1.html" class="img-opacity-hover img-overlay-70">
+                                            <a href="single_page_news/<?php echo  $news[$i]['id'].'/'.$heading2;  ?>/" class="img-opacity-hover img-overlay-70">
                                                 <img src="img/news/<?php echo $news[$i]['img']; ?>" alt="news" class="img-fluid">
                                             </a>
                                             <div class="topic-box-top-xs">
@@ -113,8 +116,7 @@
                                                 </ul>
                                             </div>
                                             <h3 class="title-semibold-dark size-lg mb-15">
-                                                <a href="single_page_news/<?php echo  $news[$i]['id'].'/'.$news[$i]['heading']  ?>/"><?php $heading = substr($news[$i]['heading'],0,100);
-                                                           if(substr($heading, 0, strrpos($heading, ' '))!='') $heading = substr($heading, 0, strrpos($heading, ' ')); echo $heading." ..."; ?></a>
+                                                <a href="single_page_news/<?php echo  $news[$i]['id'].'/'.$heading2;  ?>/"><?php  echo $heading." ..."; ?></a>
                                             </h3>
                                             <p><?php $description = substr($news[$i]['content'],0,500);
                                                            if(substr($description, 0, strrpos($description, ' '))!='') $description = substr($description, 0, strrpos($description, ' ')); echo $description." ..."; ?>
